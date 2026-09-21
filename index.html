@@ -385,59 +385,6 @@
             }
         }
 
-        /* Hero Slogan Animation */
-        .hero-slogan {
-            animation: sloganReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-            animation-delay: 1s;
-        }
-
-        @keyframes sloganReveal {
-            0% {
-                opacity: 0;
-                transform: translateY(30px);
-                letter-spacing: 0.5em;
-            }
-            100% {
-                opacity: 0.8;
-                transform: translateY(0);
-                letter-spacing: 0.2em;
-            }
-        }
-
-        /* Hero Buttons Animation */
-        .hero-buttons {
-            animation: buttonsReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-            animation-delay: 1.3s;
-        }
-
-        @keyframes buttonsReveal {
-            0% {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Hero Scroll Animation */
-        .hero-scroll {
-            animation: scrollReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-            animation-delay: 1.8s;
-        }
-
-        @keyframes scrollReveal {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
         /* Video Background Enhancement */
         video {
             filter: contrast(1.1) brightness(0.9);
@@ -567,9 +514,8 @@
                 <a href="#bio" class="text-sm font-semibold uppercase tracking-widest hover:text-renaldo-gold transition-colors magnetic-btn" data-i18n="nav.artist">L'Artiste</a>
                 <a href="#beatmaker" class="text-sm font-semibold uppercase tracking-widest hover:text-renaldo-gold transition-colors magnetic-btn">Beatmaker</a>
                 <a href="#musician" class="text-sm font-semibold uppercase tracking-widest hover:text-renaldo-gold transition-colors magnetic-btn">Musicien</a>
-                <a href="#music" class="text-sm font-semibold uppercase tracking-widest hover:text-renaldo-gold transition-colors magnetic-btn" data-i18n="nav.discography">Discographie</a>
+                <a href="music.html" class="text-sm font-semibold uppercase tracking-widest hover:text-renaldo-gold transition-colors magnetic-btn" data-i18n="nav.discography">Discographie</a>
                 <a href="#online-presence" class="text-sm font-semibold uppercase tracking-widest hover:text-renaldo-gold transition-colors magnetic-btn">Média</a>
-                <a href="#tour" class="text-sm font-semibold uppercase tracking-widest hover:text-renaldo-gold transition-colors magnetic-btn" data-i18n="nav.tour">Tournée</a>
                 <button id="lang-switch" class="text-sm font-semibold uppercase tracking-widest hover:text-renaldo-gold transition-colors magnetic-btn">
                     EN
                 </button>
@@ -595,7 +541,6 @@
             <a href="#musician" class="mobile-link text-3xl font-display font-bold hover:text-renaldo-gold">Musicien</a>
             <a href="#music" class="mobile-link text-3xl font-display font-bold hover:text-renaldo-gold">Musique</a>
             <a href="#online-presence" class="mobile-link text-3xl font-display font-bold hover:text-renaldo-gold">Média</a>
-            <a href="#tour" class="mobile-link text-3xl font-display font-bold hover:text-renaldo-gold">Dates</a>
             <a href="#contact" class="mobile-link text-3xl font-display font-bold text-renaldo-gold">Contact</a>
         </div>
     </nav>
@@ -620,39 +565,14 @@
             <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50"></div>
         </div>
 
-        <!-- Hero Content -->
+        <!-- Hero Content - Minimalist -->
         <div class="relative z-10 h-full flex flex-col items-center justify-center px-4 sm:px-6">
-            <!-- DJ RENALDO Text with Premium Reveal -->
-            <div class="text-center" style="margin-top: -5vh;">
-                <h1 class="font-display font-black text-white leading-none tracking-tight mb-2">
+            <!-- DJ RENALDO Text Only -->
+            <div class="text-center">
+                <h1 class="font-display font-black text-white leading-none tracking-tight">
                     <span class="block text-4xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-[12rem] hero-text opacity-0 transform translate-y-20">DJ</span>
                     <span class="block text-5xl sm:text-7xl md:text-9xl lg:text-[10rem] xl:text-[14rem] hero-text gradient-text opacity-0 transform translate-y-20">RENALDO</span>
                 </h1>
-                
-                <!-- Slogan -->
-                <p class="text-white/70 text-xs sm:text-sm md:text-base lg:text-xl max-w-2xl mx-auto mt-4 sm:mt-6 md:mt-8 hero-slogan opacity-0 tracking-widest uppercase">
-                    The Sound. The Energy. The Experience.
-                </p>
-
-                <!-- CTA Buttons -->
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 mt-6 sm:mt-8 md:mt-12 hero-buttons opacity-0">
-                    <a href="#bio" class="magnetic-btn px-6 sm:px-10 md:px-12 py-3 sm:py-4 md:py-5 bg-white/90 backdrop-blur-sm text-black font-bold uppercase tracking-[0.2em] text-xs sm:text-sm md:text-base hover:bg-renaldo-gold transition-all duration-500 rounded-sm">
-                        Discover DJ Renaldo
-                    </a>
-                    <a href="#contact" class="magnetic-btn px-6 sm:px-10 md:px-12 py-3 sm:py-4 md:py-5 border-2 border-white/80 backdrop-blur-sm text-white font-bold uppercase tracking-[0.2em] text-xs sm:text-sm md:text-base hover:bg-white hover:text-black transition-all duration-500 rounded-sm">
-                        Book DJ Renaldo
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Scroll to Explore Indicator -->
-        <div class="absolute bottom-6 sm:bottom-12 left-1/2 transform -translate-x-1/2 z-10 hero-scroll opacity-0">
-            <div class="flex flex-col items-center gap-2 text-white/60">
-                <span class="text-[10px] sm:text-xs tracking-[0.3em] uppercase">Scroll to Explore</span>
-                <div class="w-5 h-8 sm:w-6 sm:h-10 border-2 border-white/30 rounded-full flex justify-center pt-1 sm:pt-2">
-                    <div class="w-1 h-1.5 sm:w-1 sm:h-2 bg-white/60 rounded-full animate-bounce"></div>
-                </div>
             </div>
         </div>
     </section>
@@ -1098,142 +1018,6 @@
                         </button>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Derniers Événements Couvert Section -->
-    <section id="events" class="py-24 bg-gradient-to-br from-renaldo-dark via-gray-900 to-black relative overflow-hidden">
-        <!-- Background Pattern -->
-        <div class="absolute inset-0 opacity-5">
-            <div class="absolute top-20 left-10 w-32 h-32 bg-renaldo-gold rounded-full blur-3xl"></div>
-            <div class="absolute bottom-20 right-10 w-40 h-40 bg-renaldo-purple rounded-full blur-3xl"></div>
-        </div>
-
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center mb-16 reveal">
-                <h2 class="text-4xl md:text-6xl font-display font-bold text-white mb-4">Derniers Événements <span class="text-renaldo-gold">Couverts</span></h2>
-                <p class="text-gray-400 max-w-3xl mx-auto text-lg leading-relaxed">
-                    Découvrez les moments les plus mémorables où DJ Renaldo a animé les scènes les plus prestigieuses. Des soirées privées exclusives aux festivals internationaux, chaque événement est une opportunité de créer des souvenirs inoubliables et de faire vibrer les foules avec son style unique.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Événement 1: Festival International -->
-                <div class="group bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-renaldo-gold transition-all duration-300 reveal">
-                    <div class="relative h-48 overflow-hidden">
-                        <img src="images/renaldo6.jpeg" alt="Festival International" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                        <div class="absolute bottom-4 left-4">
-                            <span class="px-3 py-1 bg-renaldo-gold text-black text-xs font-bold uppercase tracking-wider rounded-full">Festival</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2">Festival Afro-Beats 2024</h3>
-                        <p class="text-gray-400 text-sm mb-4">Kinshasa, RDC - Plus de 50,000 spectateurs</p>
-                        <p class="text-gray-300 text-sm leading-relaxed">
-                            Une performance époustouflante qui a marqué l'histoire du festival avec un set de 4 heures mélangeant rythmes traditionnels et électroniques modernes.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Événement 2: Soirée Privée VIP -->
-                <div class="group bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-renaldo-gold transition-all duration-300 reveal">
-                    <div class="relative h-48 overflow-hidden">
-                        <img src="images/renaldo7.jpeg" alt="Soirée Privée VIP" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                        <div class="absolute bottom-4 left-4">
-                            <span class="px-3 py-1 bg-renaldo-purple text-white text-xs font-bold uppercase tracking-wider rounded-full">VIP</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2">Anniversaire VIP</h3>
-                        <p class="text-gray-400 text-sm mb-4">Dubai, Émirats Arabes Unis</p>
-                        <p class="text-gray-300 text-sm leading-relaxed">
-                            Une soirée exclusive pour célébrer les 50 ans d'un homme d'affaires influent, avec un set personnalisé adapté aux goûts raffinés des invités.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Événement 3: Concert Public -->
-                <div class="group bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-renaldo-gold transition-all duration-300 reveal">
-                    <div class="relative h-48 overflow-hidden">
-                        <img src="images/renaldo8.jpeg" alt="Concert Public" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                        <div class="absolute bottom-4 left-4">
-                            <span class="px-3 py-1 bg-red-500 text-white text-xs font-bold uppercase tracking-wider rounded-full">Concert</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2">Summer Music Festival</h3>
-                        <p class="text-gray-400 text-sm mb-4">Paris, France - 25,000 spectateurs</p>
-                        <p class="text-gray-300 text-sm leading-relaxed">
-                            Un concert mémorable sous le soleil parisien, où DJ Renaldo a fait danser la foule pendant 3 heures avec ses meilleurs hits.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Événement 4: Mariage de Luxe -->
-                <div class="group bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-renaldo-gold transition-all duration-300 reveal">
-                    <div class="relative h-48 overflow-hidden">
-                        <img src="images/renaldo9.jpeg" alt="Mariage de Luxe" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                        <div class="absolute bottom-4 left-4">
-                            <span class="px-3 py-1 bg-pink-500 text-white text-xs font-bold uppercase tracking-wider rounded-full">Mariage</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2">Mariage Royal</h3>
-                        <p class="text-gray-400 text-sm mb-4">Marrakech, Maroc</p>
-                        <p class="text-gray-300 text-sm leading-relaxed">
-                            Une cérémonie de mariage somptueuse pour une famille royale, avec une ambiance musicale qui a enchanté tous les invités pendant toute la soirée.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Événement 5: Club Set -->
-                <div class="group bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-renaldo-gold transition-all duration-300 reveal">
-                    <div class="relative h-48 overflow-hidden">
-                        <img src="images/renaldo4.jpeg" alt="Club Set" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                        <div class="absolute bottom-4 left-4">
-                            <span class="px-3 py-1 bg-blue-500 text-white text-xs font-bold uppercase tracking-wider rounded-full">Club</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2">Nuit Électronique</h3>
-                        <p class="text-gray-400 text-sm mb-4">Berlin, Allemagne</p>
-                        <p class="text-gray-300 text-sm leading-relaxed">
-                            Une session nocturne dans l'un des clubs les plus prestigieux de Berlin, où DJ Renaldo a poussé les limites de la musique électronique.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Événement 6: Concert Humanitaire -->
-                <div class="group bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-renaldo-gold transition-all duration-300 reveal">
-                    <div class="relative h-48 overflow-hidden">
-                        <img src="images/renaldo5.jpeg" alt="Concert Humanitaire" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                        <div class="absolute bottom-4 left-4">
-                            <span class="px-3 py-1 bg-green-500 text-white text-xs font-bold uppercase tracking-wider rounded-full">Humanitaire</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2">Concert pour l'Éducation</h3>
-                        <p class="text-gray-400 text-sm mb-4">Lubumbashi, RDC - 10,000 spectateurs</p>
-                        <p class="text-gray-300 text-sm leading-relaxed">
-                            Un concert caritatif au profit de l'éducation des jeunes, rassemblant la communauté pour une cause noble avec une énergie contagieuse.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Call to Action -->
-            <div class="text-center mt-16 reveal">
-                <p class="text-gray-400 mb-6">Vous souhaitez inviter DJ Renaldo à votre événement ?</p>
-                <a href="#contact" class="inline-flex items-center gap-2 px-8 py-4 bg-renaldo-gold text-black font-bold uppercase tracking-wider hover:bg-white transition-colors duration-300">
-                    <i data-lucide="calendar"></i> Réserver Maintenant
-                </a>
             </div>
         </div>
     </section>
