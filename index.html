@@ -441,6 +441,43 @@
         /* Video Background Enhancement */
         video {
             filter: contrast(1.1) brightness(0.9);
+            will-change: transform;
+        }
+
+        /* Cinematic Loader Animations */
+        .letter {
+            display: inline-block;
+            animation: letterReveal 0.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes letterReveal {
+            0% {
+                opacity: 0;
+                transform: translateY(20px) scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Mobile-First Typography */
+        @media (max-width: 768px) {
+            .hero-text:nth-child(1) {
+                font-size: 3rem !important;
+            }
+            .hero-text:nth-child(2) {
+                font-size: 4rem !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text:nth-child(1) {
+                font-size: 2.5rem !important;
+            }
+            .hero-text:nth-child(2) {
+                font-size: 3rem !important;
+            }
         }
     </style>
 </head>
@@ -456,18 +493,64 @@
     <div class="cursor-dot hidden md:block"></div>
     <div class="cursor-outline hidden md:block"></div>
 
-    <!-- Premium Loader -->
-    <div id="loader" class="fixed inset-0 z-[100] bg-black flex flex-col items-center justify-center">
-        <div class="loader-content relative">
-            <div class="w-32 h-32 md:w-48 md:h-48 rounded-full border-4 border-renaldo-gold/20 flex items-center justify-center">
-                <div class="w-24 h-24 md:w-36 md:h-36 rounded-full border-4 border-renaldo-gold/40 flex items-center justify-center">
-                    <div class="w-16 h-16 md:w-24 md:h-24 rounded-full border-4 border-renaldo-gold/60 flex items-center justify-center">
-                        <div class="w-8 h-8 md:w-12 md:h-12 rounded-full bg-renaldo-gold animate-pulse"></div>
+    <!-- Cinematic Motion Design Loader -->
+    <div id="loader" class="fixed inset-0 z-[100] bg-black flex flex-col items-center justify-center overflow-hidden">
+        <!-- Animated Background -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-renaldo-gold rounded-full blur-3xl animate-pulse"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-renaldo-purple rounded-full blur-3xl animate-pulse" style="animation-delay: 1s"></div>
+        </div>
+
+        <!-- Loading Content -->
+        <div class="relative z-10 text-center">
+            <!-- Logo Animation -->
+            <div class="mb-8">
+                <div class="w-20 h-20 md:w-32 md:h-32 mx-auto relative">
+                    <div class="absolute inset-0 border-4 border-renaldo-gold/30 rounded-full animate-spin" style="animation-duration: 3s"></div>
+                    <div class="absolute inset-2 border-2 border-renaldo-purple/30 rounded-full animate-spin" style="animation-duration: 2s; animation-direction: reverse"></div>
+                    <div class="absolute inset-4 bg-renaldo-gold/10 rounded-full flex items-center justify-center">
+                        <span class="text-2xl md:text-4xl font-display font-bold text-renaldo-gold">DJ</span>
                     </div>
                 </div>
             </div>
-            <h1 class="font-display text-2xl md:text-4xl font-bold tracking-tighter text-renaldo-gold mt-8 text-center">DJ RENALDO</h1>
-            <p class="text-gray-500 text-sm mt-2 tracking-widest uppercase">Loading Experience</p>
+
+            <!-- Welcome Message Letter by Letter -->
+            <div class="overflow-hidden mb-6">
+                <p class="text-white text-sm md:text-lg tracking-widest uppercase welcome-text">
+                    <span class="letter inline-block opacity-0">W</span>
+                    <span class="letter inline-block opacity-0">e</span>
+                    <span class="letter inline-block opacity-0">l</span>
+                    <span class="letter inline-block opacity-0">c</span>
+                    <span class="letter inline-block opacity-0">o</span>
+                    <span class="letter inline-block opacity-0">m</span>
+                    <span class="letter inline-block opacity-0">e</span>
+                    <span class="letter inline-block opacity-0">&nbsp;</span>
+                    <span class="letter inline-block opacity-0">i</span>
+                    <span class="letter inline-block opacity-0">n</span>
+                    <span class="letter inline-block opacity-0">&nbsp;</span>
+                    <span class="letter inline-block opacity-0">R</span>
+                    <span class="letter inline-block opacity-0">e</span>
+                    <span class="letter inline-block opacity-0">n</span>
+                    <span class="letter inline-block opacity-0">a</span>
+                    <span class="letter inline-block opacity-0">l</span>
+                    <span class="letter inline-block opacity-0">d</span>
+                    <span class="letter inline-block opacity-0">o</span>
+                    <span class="letter inline-block opacity-0">&nbsp;</span>
+                    <span class="letter inline-block opacity-0">w</span>
+                    <span class="letter inline-block opacity-0">o</span>
+                    <span class="letter inline-block opacity-0">r</span>
+                    <span class="letter inline-block opacity-0">l</span>
+                    <span class="letter inline-block opacity-0">d</span>
+                </p>
+            </div>
+
+            <!-- Loading Progress -->
+            <div class="w-48 md:w-64 h-1 bg-white/10 rounded-full overflow-hidden mx-auto">
+                <div id="loader-progress" class="h-full bg-gradient-to-r from-renaldo-gold via-renaldo-purple to-renaldo-accent rounded-full" style="width: 0%"></div>
+            </div>
+
+            <!-- Loading Text -->
+            <p class="text-gray-500 text-xs mt-4 tracking-widest uppercase loading-percent">0%</p>
         </div>
     </div>
 
@@ -519,16 +602,17 @@
 
     <!-- Premium Hero Section -->
     <section id="home" class="relative h-screen w-full overflow-hidden">
-        <!-- Video Background -->
+        <!-- Video Background with Optimized Loading -->
         <div class="absolute inset-0 w-full h-full">
             <video 
                 autoplay 
                 muted 
                 loop 
                 playsinline 
-                preload="auto"
+                preload="metadata"
                 class="absolute inset-0 w-full h-full object-cover"
                 poster="images/renaldo10.jpeg"
+                id="hero-video"
             >
                 <source src="images/video background page d'acceuil.mov" type="video/mp4">
             </video>
@@ -542,21 +626,21 @@
             <!-- DJ RENALDO Text with Premium Reveal -->
             <div class="text-center">
                 <h1 class="font-display font-black text-white leading-none tracking-tight mb-2">
-                    <span class="block text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[12rem] hero-text opacity-0 transform translate-y-20">DJ</span>
-                    <span class="block text-6xl sm:text-8xl md:text-9xl lg:text-[10rem] xl:text-[14rem] hero-text gradient-text opacity-0 transform translate-y-20">RENALDO</span>
+                    <span class="block text-4xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-[12rem] hero-text opacity-0 transform translate-y-20">DJ</span>
+                    <span class="block text-5xl sm:text-7xl md:text-9xl lg:text-[10rem] xl:text-[14rem] hero-text gradient-text opacity-0 transform translate-y-20">RENALDO</span>
                 </h1>
                 
                 <!-- Slogan -->
-                <p class="text-white/80 text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl mx-auto mt-6 sm:mt-8 hero-slogan opacity-0 tracking-widest uppercase">
+                <p class="text-white/80 text-xs sm:text-sm md:text-base lg:text-xl max-w-2xl mx-auto mt-4 sm:mt-6 md:mt-8 hero-slogan opacity-0 tracking-widest uppercase">
                     The Sound. The Energy. The Experience.
                 </p>
 
                 <!-- CTA Buttons -->
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mt-8 sm:mt-12 hero-buttons opacity-0">
-                    <a href="#bio" class="magnetic-btn px-8 sm:px-12 py-4 sm:py-5 bg-white text-black font-bold uppercase tracking-[0.2em] text-sm sm:text-base hover:bg-renaldo-gold transition-all duration-500 rounded-sm">
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 mt-6 sm:mt-8 md:mt-12 hero-buttons opacity-0">
+                    <a href="#bio" class="magnetic-btn px-6 sm:px-10 md:px-12 py-3 sm:py-4 md:py-5 bg-white text-black font-bold uppercase tracking-[0.2em] text-xs sm:text-sm md:text-base hover:bg-renaldo-gold transition-all duration-500 rounded-sm">
                         Discover DJ Renaldo
                     </a>
-                    <a href="#contact" class="magnetic-btn px-8 sm:px-12 py-4 sm:py-5 border-2 border-white text-white font-bold uppercase tracking-[0.2em] text-sm sm:text-base hover:bg-white hover:text-black transition-all duration-500 rounded-sm">
+                    <a href="#contact" class="magnetic-btn px-6 sm:px-10 md:px-12 py-3 sm:py-4 md:py-5 border-2 border-white text-white font-bold uppercase tracking-[0.2em] text-xs sm:text-sm md:text-base hover:bg-white hover:text-black transition-all duration-500 rounded-sm">
                         Book DJ Renaldo
                     </a>
                 </div>
@@ -564,15 +648,37 @@
         </div>
 
         <!-- Scroll to Explore Indicator -->
-        <div class="absolute bottom-8 sm:bottom-12 left-1/2 transform -translate-x-1/2 z-10 hero-scroll opacity-0">
+        <div class="absolute bottom-6 sm:bottom-12 left-1/2 transform -translate-x-1/2 z-10 hero-scroll opacity-0">
             <div class="flex flex-col items-center gap-2 text-white/60">
-                <span class="text-xs tracking-[0.3em] uppercase">Scroll to Explore</span>
-                <div class="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2">
-                    <div class="w-1 h-2 bg-white/60 rounded-full animate-bounce"></div>
+                <span class="text-[10px] sm:text-xs tracking-[0.3em] uppercase">Scroll to Explore</span>
+                <div class="w-5 h-8 sm:w-6 sm:h-10 border-2 border-white/30 rounded-full flex justify-center pt-1 sm:pt-2">
+                    <div class="w-1 h-1.5 sm:w-1 sm:h-2 bg-white/60 rounded-full animate-bounce"></div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-[99] bg-black/95 backdrop-blur-lg border-t border-white/10 p-4 sm:p-6 transform translate-y-full transition-transform duration-500">
+        <div class="container mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="text-center sm:text-left">
+                <p class="text-white text-xs sm:text-sm mb-1">
+                    <span class="text-renaldo-gold font-semibold">🍪 Cookies</span> Nous utilisons des cookies pour améliorer votre expérience.
+                </p>
+                <p class="text-gray-400 text-[10px] sm:text-xs">
+                    En continuant, vous acceptez notre <a href="#" class="text-renaldo-gold hover:underline">politique de confidentialité</a>.
+                </p>
+            </div>
+            <div class="flex gap-2 sm:gap-3 justify-center sm:justify-end">
+                <button id="accept-cookies" class="px-4 sm:px-6 py-2 bg-renaldo-gold text-black text-xs sm:text-sm font-bold uppercase tracking-wider hover:bg-white transition-colors rounded-sm">
+                    Accepter
+                </button>
+                <button id="reject-cookies" class="px-4 sm:px-6 py-2 border border-white/30 text-white text-xs sm:text-sm font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-colors rounded-sm">
+                    Refuser
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- Bio / Stats Section -->
     <section id="bio" class="py-16 sm:py-20 md:py-24 bg-renaldo-dark relative">
@@ -1333,40 +1439,93 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-black py-8 border-t border-white/10 text-center">
-        <p class="text-gray-600 text-sm mb-6">© 2026- DJ RENALDO. Tous droits réservés. <br> Designed by <span class="text-white">360 Agency</span>.</p>
-        <div class="flex justify-center gap-4 flex-wrap">
-            <a href="#" class="w-12 h-12 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full flex items-center justify-center text-white hover:scale-110 transition-all duration-300 shadow-lg" title="Instagram">
-                <i class="fab fa-instagram text-xl"></i>
-            </a>
-            <a href="#" class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white hover:scale-110 transition-all duration-300 shadow-lg" title="Facebook">
-                <i class="fab fa-facebook-f text-xl"></i>
-            </a>
-            <a href="#" class="w-12 h-12 bg-black rounded-full flex items-center justify-center text-white hover:scale-110 transition-all duration-300 shadow-lg border border-white/20" title="X (Twitter)">
-                <i class="fab fa-twitter text-xl"></i>
-            </a>
-            <a href="#" class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-white hover:scale-110 transition-all duration-300 shadow-lg" title="YouTube">
-                <i class="fab fa-youtube text-xl"></i>
-            </a>
-            <a href="#" class="w-12 h-12 bg-black rounded-full flex items-center justify-center text-white hover:scale-110 transition-all duration-300 shadow-lg border border-white/20" title="Apple Music">
-                <i class="fab fa-apple text-xl"></i>
-            </a>
-            <a href="#" class="w-12 h-12 bg-black rounded-full flex items-center justify-center text-white hover:scale-110 transition-all duration-300 shadow-lg border border-white/20" title="iTunes">
-                <i class="fab fa-apple text-xl"></i>
-            </a>
-            <a href="#" class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white hover:scale-110 transition-all duration-300 shadow-lg" title="Spotify">
-                <i class="fab fa-spotify text-xl"></i>
-            </a>
-            <a href="#" class="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white hover:scale-110 transition-all duration-300 shadow-lg" title="Deezer">
-                <i class="fab fa-deezer text-xl"></i>
-            </a>
-            <a href="#" class="w-12 h-12 bg-orange-600 rounded-full flex items-center justify-center text-white hover:scale-110 transition-all duration-300 shadow-lg" title="SoundCloud">
-                <i class="fab fa-soundcloud text-xl"></i>
-            </a>
-            <a href="#" class="w-12 h-12 bg-black rounded-full flex items-center justify-center text-white hover:scale-110 transition-all duration-300 shadow-lg border border-white/20" title="Tidal">
-                <i class="fab fa-tidal text-xl"></i>
-            </a>
+    <!-- Professional Footer -->
+    <footer class="bg-black border-t border-white/10">
+        <div class="container mx-auto px-4 sm:px-6 py-12 sm:py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
+                <!-- Brand -->
+                <div class="space-y-6">
+                    <a href="index.html" class="font-display text-2xl sm:text-3xl font-bold tracking-tighter text-white hover:text-renaldo-gold transition-colors">
+                        DJ RENALDO<span class="text-renaldo-gold">.</span>
+                    </a>
+                    <p class="text-gray-400 text-sm sm:text-base leading-relaxed">
+                        Le Chevalier Noir - Artiste Musicien & Beatmaker International
+                    </p>
+                    <div class="flex gap-3">
+                        <a href="https://fr.wikipedia.org/wiki/DJ_Renaldo_(beatmaker)" target="_blank" class="text-gray-500 hover:text-renaldo-gold transition-colors">
+                            <i data-lucide="globe" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="space-y-6">
+                    <h3 class="text-white font-bold uppercase tracking-widest text-sm mb-4">Navigation</h3>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-400 hover:text-renaldo-gold transition-colors text-sm">Accueil</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-renaldo-gold transition-colors text-sm">À Propos</a></li>
+                        <li><a href="music.html" class="text-gray-400 hover:text-renaldo-gold transition-colors text-sm">Musique</a></li>
+                        <li><a href="press.html" class="text-gray-400 hover:text-renaldo-gold transition-colors text-sm">Presse</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-renaldo-gold transition-colors text-sm">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="space-y-6">
+                    <h3 class="text-white font-bold uppercase tracking-widest text-sm mb-4">Contact</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="mail" class="w-5 h-5 text-renaldo-gold"></i>
+                            <a href="mailto:djrenaldobooking@gmail.com" class="text-gray-400 hover:text-white transition-colors text-sm">djrenaldobooking@gmail.com</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="phone" class="w-5 h-5 text-renaldo-gold"></i>
+                            <a href="tel:+243995597388" class="text-gray-400 hover:text-white transition-colors text-sm">+243 995 597 388</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="user" class="w-5 h-5 text-renaldo-gold"></i>
+                            <span class="text-gray-400 text-sm">Peters Ngoy (Manager)</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Social Media -->
+                <div class="space-y-6">
+                    <h3 class="text-white font-bold uppercase tracking-widest text-sm mb-4">Suivez-nous</h3>
+                    <div class="flex gap-3 flex-wrap">
+                        <a href="#" class="w-10 h-10 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full flex items-center justify-center text-white hover:scale-110 transition-all duration-300 shadow-lg" title="Instagram">
+                            <i class="fab fa-instagram text-lg"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white hover:scale-110 transition-all duration-300 shadow-lg" title="Facebook">
+                            <i class="fab fa-facebook-f text-lg"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-black rounded-full flex items-center justify-center text-white hover:scale-110 transition-all duration-300 shadow-lg border border-white/20" title="X (Twitter)">
+                            <i class="fab fa-twitter text-lg"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white hover:scale-110 transition-all duration-300 shadow-lg" title="YouTube">
+                            <i class="fab fa-youtube text-lg"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white hover:scale-110 transition-all duration-300 shadow-lg" title="Spotify">
+                            <i class="fab fa-spotify text-lg"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center text-white hover:scale-110 transition-all duration-300 shadow-lg" title="SoundCloud">
+                            <i class="fab fa-soundcloud text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-white/10 pt-8 mt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-xs text-center md:text-left">
+                    © 2026 DJ RENALDO. Tous droits réservés.
+                </p>
+                <div class="flex gap-4 justify-center md:justify-end">
+                    <a href="#" class="text-gray-500 hover:text-white text-xs transition-colors">Politique de Confidentialité</a>
+                    <a href="#" class="text-gray-500 hover:text-white text-xs transition-colors">Mentions Légales</a>
+                    <a href="#" class="text-gray-500 hover:text-white text-xs transition-colors">CGU</a>
+                </div>
+            </div>
         </div>
     </footer>
 
@@ -1759,17 +1918,38 @@
         // Init Lucide Icons
         lucide.createIcons();
 
-        // Premium Loader
+        // Premium Cinematic Loader
         window.addEventListener('load', () => {
             const loader = document.getElementById('loader');
-            // Give more time for video to load and animations to play
-            setTimeout(() => {
-                loader.style.opacity = '0';
-                loader.style.visibility = 'hidden';
-                setTimeout(() => {
-                    loader.style.display = 'none';
-                }, 800);
-            }, 2500);
+            const letters = document.querySelectorAll('.letter');
+            const progress = document.getElementById('loader-progress');
+            const percent = document.querySelector('.loading-percent');
+            
+            // Animate letters one by one
+            letters.forEach((letter, index) => {
+                letter.style.animationDelay = `${index * 0.08}s`;
+            });
+
+            // Simulate loading progress
+            let loadProgress = 0;
+            const progressInterval = setInterval(() => {
+                loadProgress += Math.random() * 15;
+                if (loadProgress >= 100) {
+                    loadProgress = 100;
+                    clearInterval(progressInterval);
+                    
+                    // Hide loader after animation completes
+                    setTimeout(() => {
+                        loader.style.opacity = '0';
+                        loader.style.visibility = 'hidden';
+                        setTimeout(() => {
+                            loader.style.display = 'none';
+                        }, 800);
+                    }, 1000);
+                }
+                progress.style.width = `${loadProgress}%`;
+                percent.textContent = `${Math.floor(loadProgress)}%`;
+            }, 100);
         });
 
         // Navbar Scroll Effect
@@ -1795,6 +1975,28 @@
         mobileBtn.addEventListener('click', toggleMenu);
         closeBtn.addEventListener('click', toggleMenu);
         mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        // Cookie Consent
+        const cookieBanner = document.getElementById('cookie-banner');
+        const acceptCookies = document.getElementById('accept-cookies');
+        const rejectCookies = document.getElementById('reject-cookies');
+
+        // Check if user already made choice
+        if (!localStorage.getItem('cookieChoice')) {
+            setTimeout(() => {
+                cookieBanner.classList.remove('translate-y-full');
+            }, 2000);
+        }
+
+        acceptCookies.addEventListener('click', () => {
+            localStorage.setItem('cookieChoice', 'accepted');
+            cookieBanner.classList.add('translate-y-full');
+        });
+
+        rejectCookies.addEventListener('click', () => {
+            localStorage.setItem('cookieChoice', 'rejected');
+            cookieBanner.classList.add('translate-y-full');
+        });
 
         // Audio Player Logic (Visual Only + State)
         let isPlaying = false;
