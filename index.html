@@ -332,24 +332,6 @@
         }
         @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
-        /* Premium Loader */
-        #loader {
-            transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
-        }
-        .loader-content {
-            animation: pulse-glow 2s ease-in-out infinite;
-        }
-        @keyframes pulse-glow {
-            0%, 100% { 
-                box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
-                transform: scale(1);
-            }
-            50% { 
-                box-shadow: 0 0 40px rgba(255, 215, 0, 0.6);
-                transform: scale(1.05);
-            }
-        }
-
         /* Smooth Scroll */
         html {
             scroll-behavior: smooth;
@@ -392,22 +374,6 @@
         }
 
         /* Cinematic Loader Animations */
-        .letter {
-            display: inline-block;
-            animation: letterReveal 0.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        @keyframes letterReveal {
-            0% {
-                opacity: 0;
-                transform: translateY(20px) scale(0.8);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
         /* Mobile-First Typography */
         @media (max-width: 768px) {
             .hero-text:nth-child(1) {
@@ -439,24 +405,6 @@
     <!-- Custom Cursor Elements -->
     <div class="cursor-dot hidden md:block"></div>
     <div class="cursor-outline hidden md:block"></div>
-
-    <!-- Fast Optimized Loader -->
-    <div id="loader" class="fixed inset-0 z-[100] bg-black flex flex-col items-center justify-center">
-        <div class="relative z-10 text-center">
-            <!-- Simple Logo -->
-            <div class="mb-6">
-                <span class="text-3xl md:text-5xl font-display font-bold text-renaldo-gold">DJ RENALDO</span>
-            </div>
-
-            <!-- Simple Progress Bar -->
-            <div class="w-48 md:w-64 h-1 bg-white/10 rounded-full overflow-hidden mx-auto">
-                <div id="loader-progress" class="h-full bg-renaldo-gold rounded-full" style="width: 0%"></div>
-            </div>
-
-            <!-- Loading Text -->
-            <p class="text-gray-500 text-xs mt-4 tracking-widest uppercase loading-percent">0%</p>
-        </div>
-    </div>
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 glass-dark border-b border-white/10 transition-all duration-300" id="navbar">
@@ -1656,52 +1604,6 @@
 
         // Init Lucide Icons
         lucide.createIcons();
-
-        // Premium Cinematic Loader - Optimized
-        window.addEventListener('load', () => {
-            const loader = document.getElementById('loader');
-            const letters = document.querySelectorAll('.letter');
-            const progress = document.getElementById('loader-progress');
-            const percent = document.querySelector('.loading-percent');
-            
-            // Animate letters one by one - faster
-            letters.forEach((letter, index) => {
-                letter.style.animationDelay = `${index * 0.03}s`;
-            });
-
-            // Fast loading progress - 1.5s total
-            let loadProgress = 0;
-            const progressInterval = setInterval(() => {
-                loadProgress += 5;
-                if (loadProgress >= 100) {
-                    loadProgress = 100;
-                    clearInterval(progressInterval);
-                    
-                    // Hide loader immediately after progress completes
-                    setTimeout(() => {
-                        loader.style.opacity = '0';
-                        loader.style.visibility = 'hidden';
-                        setTimeout(() => {
-                            loader.style.display = 'none';
-                        }, 300);
-                    }, 300);
-                }
-                progress.style.width = `${loadProgress}%`;
-                percent.textContent = `${Math.floor(loadProgress)}%`;
-            }, 15);
-        });
-
-        // Safety timeout: force hide loader after 3 seconds even if load event doesn't fire
-        setTimeout(() => {
-            const loader = document.getElementById('loader');
-            if (loader && loader.style.display !== 'none') {
-                loader.style.opacity = '0';
-                loader.style.visibility = 'hidden';
-                setTimeout(() => {
-                    loader.style.display = 'none';
-                }, 300);
-            }
-        }, 3000);
 
         // Navbar Scroll Effect
         window.addEventListener('scroll', () => {
