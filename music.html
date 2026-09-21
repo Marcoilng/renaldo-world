@@ -282,15 +282,228 @@
                     Musique
                 </h1>
                 <p class="text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl max-w-2xl mx-auto mb-8 reveal font-light px-4">
-                    Albums, EPs, Singles & Remixes
+                    Albums, EPs, Singles & Collaborations
                 </p>
-                <div class="flex flex-col sm:flex-row justify-center gap-4 reveal px-4">
-                    <a href="#albums" class="magnetic-btn px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-renaldo-gold to-renaldo-purple text-black font-bold uppercase tracking-wider hover:from-white hover:to-white transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base glow-gold rounded-xl">
-                        <i data-lucide="disc"></i> Albums
-                    </a>
-                    <a href="#singles" class="magnetic-btn px-6 sm:px-8 py-3 sm:py-4 glass border border-white/30 text-white font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-all duration-300 text-sm sm:text-base rounded-xl">
-                        Singles
-                    </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Streaming Platforms Section -->
+    <section class="py-16 sm:py-20 md:py-24 bg-renaldo-dark relative">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 sm:mb-16 reveal">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-4">Écouter & Suivre <span class="text-renaldo-gold">sur les Plateformes</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base">Retrouvez DJ Renaldo sur toutes les plateformes de streaming</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+                <a href="https://open.spotify.com/artist/1l5uh5vLF2AhvOZs62YMxV" target="_blank" class="glass-dark border border-white/10 rounded-xl p-6 flex flex-col items-center justify-center hover:border-green-500 transition-all duration-300 reveal">
+                    <i class="fab fa-spotify text-4xl md:text-5xl text-green-500 mb-3"></i>
+                    <span class="text-white font-semibold text-sm sm:text-base">Spotify</span>
+                </a>
+                <a href="https://music.apple.com/us/artist/dj-renaldo/1311165732" target="_blank" class="glass-dark border border-white/10 rounded-xl p-6 flex flex-col items-center justify-center hover:border-red-500 transition-all duration-300 reveal">
+                    <i class="fab fa-apple text-4xl md:text-5xl text-red-500 mb-3"></i>
+                    <span class="text-white font-semibold text-sm sm:text-base">Apple Music</span>
+                </a>
+                <a href="https://soundcloud.com/djrenaldo" target="_blank" class="glass-dark border border-white/10 rounded-xl p-6 flex flex-col items-center justify-center hover:border-orange-500 transition-all duration-300 reveal">
+                    <i class="fab fa-soundcloud text-4xl md:text-5xl text-orange-500 mb-3"></i>
+                    <span class="text-white font-semibold text-sm sm:text-base">SoundCloud</span>
+                </a>
+                <a href="https://www.youtube.com/c/djrenaldo" target="_blank" class="glass-dark border border-white/10 rounded-xl p-6 flex flex-col items-center justify-center hover:border-red-600 transition-all duration-300 reveal">
+                    <i class="fab fa-youtube text-4xl md:text-5xl text-red-600 mb-3"></i>
+                    <span class="text-white font-semibold text-sm sm:text-base">YouTube</span>
+                </a>
+                <a href="https://bandcamp.com" target="_blank" class="glass-dark border border-white/10 rounded-xl p-6 flex flex-col items-center justify-center hover:border-blue-400 transition-all duration-300 reveal">
+                    <i class="fab fa-bandcamp text-4xl md:text-5xl text-blue-400 mb-3"></i>
+                    <span class="text-white font-semibold text-sm sm:text-base">Bandcamp</span>
+                </a>
+                <a href="https://www.beatport.com" target="_blank" class="glass-dark border border-white/10 rounded-xl p-6 flex flex-col items-center justify-center hover:border-purple-500 transition-all duration-300 reveal">
+                    <i class="fas fa-music text-4xl md:text-5xl text-purple-500 mb-3"></i>
+                    <span class="text-white font-semibold text-sm sm:text-base">Beatport</span>
+                </a>
+                <a href="https://moonshine.mu" target="_blank" class="glass-dark border border-white/10 rounded-xl p-6 flex flex-col items-center justify-center hover:border-yellow-500 transition-all duration-300 reveal col-span-2 md:col-span-1">
+                    <span class="text-2xl md:text-3xl font-bold text-yellow-500 mb-2">Moonshine</span>
+                    <span class="text-white font-semibold text-sm sm:text-base">Music</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Albums & EPs Section -->
+    <section id="albums" class="py-16 sm:py-20 md:py-24 bg-[#050505] relative">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 sm:mb-16 reveal">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-4">Albums <span class="text-renaldo-gold">& EPs</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base">Discographie complète de DJ Renaldo</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
+                <!-- Nzungu EP -->
+                <div class="glass-dark border border-white/10 rounded-2xl overflow-hidden hover:border-renaldo-gold transition-all duration-300 reveal">
+                    <div class="relative h-64 sm:h-80 overflow-hidden">
+                        <img src="images/renaldo4.jpeg" alt="Nzungu EP" class="lazy-image w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <span class="px-3 py-1 bg-renaldo-gold text-black text-xs font-bold uppercase tracking-wider rounded-full">2025</span>
+                            <span class="px-3 py-1 bg-renaldo-purple text-white text-xs font-bold uppercase tracking-wider rounded-full ml-2">EP</span>
+                        </div>
+                    </div>
+                    <div class="p-6 sm:p-8">
+                        <h3 class="text-2xl sm:text-3xl font-bold text-white mb-2">Nzungu</h3>
+                        <p class="text-gray-400 text-sm mb-4">Label: Moonshine • 8 Titres</p>
+                        <a href="https://music.apple.com/album/nzungu/1836549278" target="_blank" class="inline-flex items-center gap-2 text-renaldo-gold font-semibold hover:text-white transition-colors text-sm mb-4">
+                            <i data-lucide="play-circle"></i> Écouter sur Apple Music
+                        </a>
+                        <div class="mt-6">
+                            <h4 class="text-white font-bold uppercase tracking-widest text-xs mb-3">Tracklist</h4>
+                            <ul class="space-y-2 text-gray-400 text-sm">
+                                <li>1. Barakuda (feat. DJ Matoss)</li>
+                                <li>2. Nzungu (feat. DJ Matoss & Samarino)</li>
+                                <li>3. Mbanga Yulu (feat. Joss Urban)</li>
+                                <li>4. Kokoko (feat. Fleurine)</li>
+                                <li>5. Resale Teng (feat. Meneer Busta)</li>
+                                <li>6. Uta Tentuka (feat. The Gucci)</li>
+                                <li>7. Kapata</li>
+                                <li>8. Mon Combat (feat. Spilulu)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Umoja Album -->
+                <div class="glass-dark border border-white/10 rounded-2xl overflow-hidden hover:border-renaldo-gold transition-all duration-300 reveal">
+                    <div class="relative h-64 sm:h-80 overflow-hidden">
+                        <img src="images/renaldo5.jpeg" alt="Umoja Album" class="lazy-image w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <span class="px-3 py-1 bg-renaldo-gold text-black text-xs font-bold uppercase tracking-wider rounded-full">2021</span>
+                            <span class="px-3 py-1 bg-renaldo-purple text-white text-xs font-bold uppercase tracking-wider rounded-full ml-2">Album</span>
+                        </div>
+                    </div>
+                    <div class="p-6 sm:p-8">
+                        <h3 class="text-2xl sm:text-3xl font-bold text-white mb-2">Umoja</h3>
+                        <p class="text-gray-400 text-sm mb-4">Label: Renaldo Music • 9 Titres</p>
+                        <a href="https://music.apple.com/tz/album/umoja/1549891610" target="_blank" class="inline-flex items-center gap-2 text-renaldo-gold font-semibold hover:text-white transition-colors text-sm mb-4">
+                            <i data-lucide="play-circle"></i> Écouter sur Apple Music
+                        </a>
+                        <div class="mt-6">
+                            <h4 class="text-white font-bold uppercase tracking-widest text-xs mb-3">Tracklist</h4>
+                            <ul class="space-y-2 text-gray-400 text-sm">
+                                <li>1. Danze (feat. Samarino & H-Beatz)</li>
+                                <li>2. Obosani (feat. DJ Matoss & Alvine Blaz)</li>
+                                <li>3. Shibi Yuwe (feat. Alvine Blaz)</li>
+                                <li>4. Umoja (Instrumental)</li>
+                                <li>5. Lushihub (feat. H-Beatz)</li>
+                                <li>6. Mwasi Oyo (feat. Alvine Blaz)</li>
+                                <li>7. Taximan (Instrumental)</li>
+                                <li>8. Niende kwa Nani (feat. Zorona Kok)</li>
+                                <li>9. Press Play (feat. Toober Soul)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Singles & Collaborations Section -->
+    <section id="singles" class="py-16 sm:py-20 md:py-24 bg-renaldo-dark relative">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 sm:mb-16 reveal">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-4">Singles <span class="text-renaldo-purple">& Collaborations</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base">Derniers singles et collaborations notables</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                <!-- 2026 -->
+                <div class="glass-dark border border-white/10 rounded-xl p-4 sm:p-6 hover:border-renaldo-gold transition-all duration-300 reveal">
+                    <span class="text-renaldo-gold text-xs font-bold uppercase tracking-wider">2026</span>
+                    <h3 class="text-white font-bold text-lg sm:text-xl mt-2 mb-1">PUISSANCE</h3>
+                    <p class="text-gray-400 text-sm">feat. DJ Cent15, The Gucci & Hermic H2O</p>
+                </div>
+                <div class="glass-dark border border-white/10 rounded-xl p-4 sm:p-6 hover:border-renaldo-gold transition-all duration-300 reveal">
+                    <span class="text-renaldo-gold text-xs font-bold uppercase tracking-wider">2026</span>
+                    <h3 class="text-white font-bold text-lg sm:text-xl mt-2 mb-1">MA DIDI</h3>
+                    <p class="text-gray-400 text-sm">feat. CENT15</p>
+                </div>
+                <div class="glass-dark border border-white/10 rounded-xl p-4 sm:p-6 hover:border-renaldo-gold transition-all duration-300 reveal">
+                    <span class="text-renaldo-gold text-xs font-bold uppercase tracking-wider">2026</span>
+                    <h3 class="text-white font-bold text-lg sm:text-xl mt-2 mb-1">Kilulu (Remix)</h3>
+                    <p class="text-gray-400 text-sm">Boddhi Satva & DJ Renaldo</p>
+                </div>
+
+                <!-- 2025 -->
+                <div class="glass-dark border border-white/10 rounded-xl p-4 sm:p-6 hover:border-renaldo-gold transition-all duration-300 reveal">
+                    <span class="text-renaldo-purple text-xs font-bold uppercase tracking-wider">2025</span>
+                    <h3 class="text-white font-bold text-lg sm:text-xl mt-2 mb-1">Come Outside</h3>
+                    <p class="text-gray-400 text-sm">Pson, DJ Renaldo, Mc Guetos & Majee</p>
+                </div>
+                <div class="glass-dark border border-white/10 rounded-xl p-4 sm:p-6 hover:border-renaldo-gold transition-all duration-300 reveal">
+                    <span class="text-renaldo-purple text-xs font-bold uppercase tracking-wider">2025</span>
+                    <h3 class="text-white font-bold text-lg sm:text-xl mt-2 mb-1">Resale Teng</h3>
+                    <p class="text-gray-400 text-sm">feat. Meneer Busta</p>
+                </div>
+                <div class="glass-dark border border-white/10 rounded-xl p-4 sm:p-6 hover:border-renaldo-gold transition-all duration-300 reveal">
+                    <span class="text-renaldo-purple text-xs font-bold uppercase tracking-wider">2025</span>
+                    <h3 class="text-white font-bold text-lg sm:text-xl mt-2 mb-1">Kumbele</h3>
+                    <p class="text-gray-400 text-sm">Single</p>
+                </div>
+
+                <!-- 2024 -->
+                <div class="glass-dark border border-white/10 rounded-xl p-4 sm:p-6 hover:border-renaldo-gold transition-all duration-300 reveal">
+                    <span class="text-red-500 text-xs font-bold uppercase tracking-wider">2024</span>
+                    <h3 class="text-white font-bold text-lg sm:text-xl mt-2 mb-1">Tsheza</h3>
+                    <p class="text-gray-400 text-sm">feat. DJ Sibula & Suintement</p>
+                </div>
+                <div class="glass-dark border border-white/10 rounded-xl p-4 sm:p-6 hover:border-renaldo-gold transition-all duration-300 reveal">
+                    <span class="text-red-500 text-xs font-bold uppercase tracking-wider">2024</span>
+                    <h3 class="text-white font-bold text-lg sm:text-xl mt-2 mb-1">Nancy</h3>
+                    <p class="text-gray-400 text-sm">feat. DJ Cent15 & DJ Seven</p>
+                </div>
+
+                <!-- 2023 -->
+                <div class="glass-dark border border-white/10 rounded-xl p-4 sm:p-6 hover:border-renaldo-gold transition-all duration-300 reveal">
+                    <span class="text-blue-500 text-xs font-bold uppercase tracking-wider">2023</span>
+                    <h3 class="text-white font-bold text-lg sm:text-xl mt-2 mb-1">Nehema</h3>
+                    <p class="text-gray-400 text-sm">Ninita & DJ Renaldo</p>
+                </div>
+
+                <!-- 2022 -->
+                <div class="glass-dark border border-white/10 rounded-xl p-4 sm:p-6 hover:border-renaldo-gold transition-all duration-300 reveal">
+                    <span class="text-green-500 text-xs font-bold uppercase tracking-wider">2022</span>
+                    <h3 class="text-white font-bold text-lg sm:text-xl mt-2 mb-1">Mayaka</h3>
+                    <p class="text-gray-400 text-sm">feat. Hbeatz & The Tozobar</p>
+                </div>
+                <div class="glass-dark border border-white/10 rounded-xl p-4 sm:p-6 hover:border-renaldo-gold transition-all duration-300 reveal">
+                    <span class="text-green-500 text-xs font-bold uppercase tracking-wider">2022</span>
+                    <h3 class="text-white font-bold text-lg sm:text-xl mt-2 mb-1">Lopotable</h3>
+                    <p class="text-gray-400 text-sm">feat. Hbeatz, DJ Matoss & G1L</p>
+                </div>
+                <div class="glass-dark border border-white/10 rounded-xl p-4 sm:p-6 hover:border-renaldo-gold transition-all duration-300 reveal">
+                    <span class="text-green-500 text-xs font-bold uppercase tracking-wider">2022</span>
+                    <h3 class="text-white font-bold text-lg sm:text-xl mt-2 mb-1">Domaine</h3>
+                    <p class="text-gray-400 text-sm">Zubaboy Session</p>
+                </div>
+
+                <!-- 2021 -->
+                <div class="glass-dark border border-white/10 rounded-xl p-4 sm:p-6 hover:border-renaldo-gold transition-all duration-300 reveal">
+                    <span class="text-yellow-500 text-xs font-bold uppercase tracking-wider">2021</span>
+                    <h3 class="text-white font-bold text-lg sm:text-xl mt-2 mb-1">Billie Jean (Amapiano Remix)</h3>
+                    <p class="text-gray-400 text-sm">Kaysha & DJ Renaldo</p>
+                </div>
+
+                <!-- 2020 -->
+                <div class="glass-dark border border-white/10 rounded-xl p-4 sm:p-6 hover:border-renaldo-gold transition-all duration-300 reveal">
+                    <span class="text-pink-500 text-xs font-bold uppercase tracking-wider">2020</span>
+                    <h3 class="text-white font-bold text-lg sm:text-xl mt-2 mb-1">Astronomia (Afro-House Remix)</h3>
+                    <p class="text-gray-400 text-sm">Remix</p>
+                </div>
+
+                <!-- 2019 -->
+                <div class="glass-dark border border-white/10 rounded-xl p-4 sm:p-6 hover:border-renaldo-gold transition-all duration-300 reveal">
+                    <span class="text-cyan-500 text-xs font-bold uppercase tracking-wider">2019</span>
+                    <h3 class="text-white font-bold text-lg sm:text-xl mt-2 mb-1">Lubumbashi</h3>
+                    <p class="text-gray-400 text-sm">DJ Renaldo & Modjadeep.SA</p>
                 </div>
             </div>
         </div>
