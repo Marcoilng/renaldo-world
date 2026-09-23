@@ -220,6 +220,20 @@
         @keyframes spin {
             100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
         }
+
+        /* Hamburger Menu Animation */
+        #hamburger-icon.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        #hamburger-icon.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(-10px);
+        }
+
+        #hamburger-icon.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
     </style>
 </head>
 <body class="bg-renaldo-dark text-white overflow-x-hidden selection:bg-renaldo-gold selection:text-black">
@@ -252,22 +266,26 @@
                 </a>
             </div>
 
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
-                <i data-lucide="menu" class="w-8 h-8"></i>
+            <!-- Mobile Menu Button - Minimalist Hamburger -->
+            <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none p-3 relative z-[70]">
+                <div class="w-7 h-6 flex flex-col justify-between items-center" id="hamburger-icon">
+                    <span class="w-full h-0.5 bg-white block transition-all duration-300 origin-center"></span>
+                    <span class="w-full h-0.5 bg-white block transition-all duration-300 origin-center"></span>
+                    <span class="w-full h-0.5 bg-white block transition-all duration-300 origin-center"></span>
+                </div>
             </button>
         </div>
 
         <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="fixed inset-0 bg-black z-40 transform translate-x-full transition-transform duration-300 flex flex-col justify-center items-center space-y-6 md:hidden">
-            <button id="close-menu-btn" class="absolute top-6 right-6 text-white">
-                <i data-lucide="x" class="w-8 h-8"></i>
+        <div id="mobile-menu" class="fixed inset-0 bg-black/95 backdrop-blur-lg z-[60] transform translate-x-full transition-transform duration-300 flex flex-col justify-center items-center space-y-6 sm:space-y-8 md:hidden">
+            <button id="close-menu-btn" class="absolute top-4 sm:top-6 right-4 sm:right-6 text-white focus:outline-none p-3 z-50">
+                <i data-lucide="x" class="w-6 h-6 sm:w-8 sm:h-8"></i>
             </button>
-            <a href="index.html" class="mobile-link text-3xl font-display font-bold hover:text-renaldo-gold">Accueil</a>
-            <a href="about.html" class="mobile-link text-3xl font-display font-bold hover:text-renaldo-gold">À Propos</a>
-            <a href="music.html" class="mobile-link text-3xl font-display font-bold text-renaldo-gold">Musique</a>
-            <a href="press.html" class="mobile-link text-3xl font-display font-bold hover:text-renaldo-gold">Presse</a>
-            <a href="contact.html" class="mobile-link text-3xl font-display font-bold text-renaldo-gold">Contact</a>
+            <a href="index.html" class="mobile-link text-3xl sm:text-4xl font-display font-bold text-white hover:text-renaldo-gold transition-colors">Accueil</a>
+            <a href="about.html" class="mobile-link text-3xl sm:text-4xl font-display font-bold text-white hover:text-renaldo-gold transition-colors">À Propos</a>
+            <a href="music.html" class="mobile-link text-3xl sm:text-4xl font-display font-bold text-renaldo-gold transition-colors">Musique</a>
+            <a href="press.html" class="mobile-link text-3xl sm:text-4xl font-display font-bold text-white hover:text-renaldo-gold transition-colors">Presse</a>
+            <a href="contact.html" class="mobile-link text-3xl sm:text-4xl font-display font-bold text-renaldo-gold transition-colors">Contact</a>
         </div>
     </nav>
 
@@ -960,13 +978,37 @@
         const closeBtn = document.getElementById('close-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const mobileLinks = document.querySelectorAll('.mobile-link');
+        const hamburgerIcon = document.getElementById('hamburger-icon');
 
         function toggleMenu() {
-            mobileMenu.classList.toggle('translate-x-full');
+            const isClosed = mobileMenu.classList.contains('translate-x-full');
+            if (isClosed) {
+                mobileMenu.classList.remove('translate-x-full');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+
+                // Animate hamburger to X using CSS class
+                if (hamburgerIcon) {
+                    hamburgerIcon.classList.add('active');
+                }
+            } else {
+                mobileMenu.classList.add('translate-x-full');
+                document.body.style.overflow = ''; // Restore scrolling
+
+                // Animate X back to hamburger
+                if (hamburgerIcon) {
+                    hamburgerIcon.classList.remove('active');
+                }
+            }
         }
 
-        mobileBtn.addEventListener('click', toggleMenu);
-        closeBtn.addEventListener('click', toggleMenu);
+        if (mobileBtn) {
+            mobileBtn.addEventListener('click', toggleMenu);
+        }
+
+        if (closeBtn) {
+            closeBtn.addEventListener('click', toggleMenu);
+        }
+
         mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
     </script>
 </body>
