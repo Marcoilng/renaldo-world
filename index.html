@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DJ RENALDO | L'Artiste Continental</title>
-    <meta name="description" content="Site officiel de DJ Renaldo : DJ, Chanteur, Producteur, Hitmaker de Lubumbashi. Découvrez son univers, sa musique et ses dates de tournée.">
+    <meta name="description" content="Site officiel de DJ Renaldo : DJ, Chanteur, Producteur, Beatmaker de Lubumbashi. Découvrez mon univers, ma musique et mes dates de tournée.">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -369,8 +369,106 @@
 
         /* Video Background Enhancement */
         video {
-            filter: contrast(1.1) brightness(0.9);
+            filter: contrast(1.05) brightness(0.95);
             will-change: transform;
+        }
+
+        /* Hero Entry Animations */
+        .hero-label.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hero-name.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hero-knight.active {
+            opacity: 1;
+        }
+
+        .hero-scroll.active {
+            opacity: 1;
+        }
+
+        /* Letter by Letter Animation - Only for Hero */
+        .letter-animation {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+        }
+
+        .letter-animation.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Clean Reveal Animation for Sections */
+        .clean-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .clean-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Stagger animation for children */
+        .clean-reveal.stagger-1 { transition-delay: 0.1s; }
+        .clean-reveal.stagger-2 { transition-delay: 0.2s; }
+        .clean-reveal.stagger-3 { transition-delay: 0.3s; }
+        .clean-reveal.stagger-4 { transition-delay: 0.4s; }
+
+        /* Premium Scroll Indicator */
+        .scroll-indicator {
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .scroll-indicator:hover {
+            transform: translateY(-3px);
+        }
+
+        .scroll-indicator .mouse {
+            width: 26px;
+            height: 42px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            border-radius: 13px;
+            position: relative;
+        }
+
+        .scroll-indicator .wheel {
+            width: 4px;
+            height: 8px;
+            background: #FFD700;
+            border-radius: 2px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: scroll-wheel 2s ease-in-out infinite;
+        }
+
+        @keyframes scroll-wheel {
+            0% {
+                top: 10px;
+                opacity: 1;
+            }
+            100% {
+                top: 26px;
+                opacity: 0;
+            }
+        }
+
+        /* Mobile Video Positioning */
+        @media (max-width: 768px) {
+            #hero-video {
+                object-position: center 30%;
+            }
         }
 
         /* Cinematic Loader Animations */
@@ -407,39 +505,41 @@
     <div class="cursor-outline hidden md:block"></div>
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass-dark border-b border-white/10 transition-all duration-300" id="navbar">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="font-display text-2xl font-bold tracking-tighter text-white hover:text-renaldo-gold transition-colors magnetic-btn">
+    <nav class="fixed w-full z-50 bg-black/10 backdrop-blur-sm transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-6 flex justify-between items-center">
+            <a href="index.html" class="font-display text-xl md:text-2xl font-bold tracking-tighter text-white hover:text-renaldo-gold transition-colors">
                 DJ RENALDO<span class="text-renaldo-gold">.</span>
             </a>
             
             <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center space-x-6 lg:space-x-8">
-                <a href="index.html" class="text-sm font-semibold uppercase tracking-widest hover:text-renaldo-gold transition-colors magnetic-btn">Accueil</a>
-                <a href="about.html" class="text-sm font-semibold uppercase tracking-widest hover:text-renaldo-gold transition-colors magnetic-btn">L'Artiste</a>
-                <a href="music.html" class="text-sm font-semibold uppercase tracking-widest hover:text-renaldo-gold transition-colors magnetic-btn">Discographie</a>
-                <a href="press.html" class="text-sm font-semibold uppercase tracking-widest hover:text-renaldo-gold transition-colors magnetic-btn">Presse</a>
-                <a href="contact.html" class="magnetic-btn px-6 py-2 bg-gradient-to-r from-renaldo-gold to-renaldo-purple text-black font-bold uppercase tracking-wide text-xs hover:from-white hover:to-white transition-all duration-300 glow-gold rounded-lg">
-                    Booking
-                </a>
+            <div class="hidden md:flex items-center space-x-8 lg:space-x-12">
+                <a href="index.html" class="text-xs font-semibold uppercase tracking-widest text-white/80 hover:text-renaldo-gold transition-colors">Accueil</a>
+                <a href="about.html" class="text-xs font-semibold uppercase tracking-widest text-white/80 hover:text-renaldo-gold transition-colors">L'Artiste</a>
+                <a href="music.html" class="text-xs font-semibold uppercase tracking-widest text-white/80 hover:text-renaldo-gold transition-colors">Discographie</a>
+                <a href="press.html" class="text-xs font-semibold uppercase tracking-widest text-white/80 hover:text-renaldo-gold transition-colors">Presse</a>
+                <a href="contact.html" class="text-xs font-semibold uppercase tracking-widest text-white/80 hover:text-renaldo-gold transition-colors">Booking</a>
             </div>
 
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
-                <i data-lucide="menu" class="w-8 h-8"></i>
+            <!-- Mobile Menu Button - Minimalist Hamburger -->
+            <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none p-2 relative">
+                <div class="w-6 h-5 flex flex-col justify-between" id="hamburger-icon">
+                    <span class="w-full h-0.5 bg-white block transition-all duration-300 origin-center"></span>
+                    <span class="w-full h-0.5 bg-white block transition-all duration-300 origin-center"></span>
+                    <span class="w-full h-0.5 bg-white block transition-all duration-300 origin-center"></span>
+                </div>
             </button>
         </div>
 
         <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="fixed inset-0 bg-black z-40 transform translate-x-full transition-transform duration-300 flex flex-col justify-center items-center space-y-6 md:hidden">
-            <button id="close-menu-btn" class="absolute top-6 right-6 text-white">
+        <div id="mobile-menu" class="fixed inset-0 bg-black/95 backdrop-blur-lg z-40 transform translate-x-full transition-transform duration-300 flex flex-col justify-center items-center space-y-8 md:hidden">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white focus:outline-none p-2">
                 <i data-lucide="x" class="w-8 h-8"></i>
             </button>
-            <a href="index.html" class="mobile-link text-3xl font-display font-bold hover:text-renaldo-gold">Accueil</a>
-            <a href="about.html" class="mobile-link text-3xl font-display font-bold hover:text-renaldo-gold">L'Artiste</a>
-            <a href="music.html" class="mobile-link text-3xl font-display font-bold hover:text-renaldo-gold">Musique</a>
-            <a href="press.html" class="mobile-link text-3xl font-display font-bold hover:text-renaldo-gold">Presse</a>
-            <a href="contact.html" class="mobile-link text-3xl font-display font-bold text-renaldo-gold">Contact</a>
+            <a href="index.html" class="mobile-link text-4xl font-display font-bold text-white hover:text-renaldo-gold transition-colors">Accueil</a>
+            <a href="about.html" class="mobile-link text-4xl font-display font-bold text-white hover:text-renaldo-gold transition-colors">L'Artiste</a>
+            <a href="music.html" class="mobile-link text-4xl font-display font-bold text-white hover:text-renaldo-gold transition-colors">Musique</a>
+            <a href="press.html" class="mobile-link text-4xl font-display font-bold text-white hover:text-renaldo-gold transition-colors">Presse</a>
+            <a href="contact.html" class="mobile-link text-4xl font-display font-bold text-renaldo-gold transition-colors">Contact</a>
         </div>
     </nav>
 
@@ -453,24 +553,61 @@
                 loop 
                 playsinline 
                 preload="none"
-                class="absolute inset-0 w-full h-full object-cover"
+                class="absolute inset-0 w-full h-full object-cover object-center"
                 poster="images/renaldo10.jpeg"
                 id="hero-video"
             >
                 <source src="images/video background page d'acceuil.mov" type="video/mp4">
             </video>
-            <!-- Minimal Overlay for Better Video Visibility -->
-            <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50"></div>
+            <!-- Subtle Cinematic Overlay -->
+            <div class="absolute inset-0 bg-black/20"></div>
         </div>
 
-        <!-- Hero Content - Minimalist -->
-        <div class="relative z-10 h-full flex flex-col items-center justify-center px-4 sm:px-6">
-            <!-- DJ RENALDO Text Only -->
-            <div class="text-center">
-                <h1 class="font-display font-black text-white leading-none tracking-tight">
-                    <span class="block text-4xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-[12rem] hero-text opacity-0 transform translate-y-20">DJ</span>
-                    <span class="block text-5xl sm:text-7xl md:text-9xl lg:text-[10rem] xl:text-[14rem] hero-text gradient-text opacity-0 transform translate-y-20">RENALDO</span>
-                </h1>
+        <!-- Hero Content - Editorial Composition -->
+        <div class="relative z-10 h-full flex flex-col justify-between px-4 sm:px-6 md:px-8 lg:px-12 py-8 sm:py-12 md:py-16 lg:py-20">
+            <!-- Desktop: Left positioning -->
+            <div class="absolute left-[5%] bottom-[10%] hidden lg:block">
+                <!-- Artist Name -->
+                <div class="hero-name opacity-0 translate-y-8 transition-all duration-1200 ease-out delay-200">
+                    <h1 class="font-display font-black text-white leading-none tracking-tight">
+                        <span class="block text-6xl md:text-7xl lg:text-8xl xl:text-9xl">DJ</span>
+                        <span class="block text-7xl md:text-8xl lg:text-9xl xl:text-[10rem]">RENALDO<span class="text-renaldo-gold">.</span></span>
+                    </h1>
+                </div>
+            </div>
+
+            <!-- Mobile: Centered with side margins -->
+            <div class="lg:hidden w-full left-[6%] right-[6%] bottom-[10%]">
+                <!-- Artist Name -->
+                <div class="hero-name opacity-0 translate-y-8 transition-all duration-1200 ease-out delay-200">
+                    <h1 class="font-display font-black text-white leading-none tracking-tight">
+                        <span class="block text-3xl sm:text-4xl md:text-5xl">DJ</span>
+                        <span class="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl">RENALDO<span class="text-renaldo-gold">.</span></span>
+                    </h1>
+                </div>
+            </div>
+
+            <!-- Bottom Content -->
+            <div class="flex flex-col items-center justify-center gap-4 sm:gap-6">
+                <!-- Le Chevalier Noir - Letter Animation -->
+                <div class="hero-knight opacity-0 transition-all duration-1000 ease-out delay-800">
+                    <h2 class="font-display font-bold text-white text-lg sm:text-xl md:text-2xl lg:text-3xl tracking-[0.08em] uppercase letter-by-letter" id="knight-text">
+                        Le Chevalier Noir
+                    </h2>
+                </div>
+
+                <!-- Site Official Label -->
+                <div class="hero-label opacity-0 translate-y-4 transition-all duration-1000 ease-out delay-1200">
+                    <p class="text-renaldo-gold text-[10px] sm:text-xs font-bold uppercase tracking-[0.3em]">— Site Officiel</p>
+                </div>
+            </div>
+
+            <!-- Premium Scroll Indicator -->
+            <div class="absolute bottom-16 left-1/2 transform -translate-x-1/2 hero-scroll opacity-0 transition-all duration-1000 ease-out delay-1500 scroll-indicator flex flex-col items-center gap-3" data-scroll="true">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+                <span class="text-white/60 text-[10px] sm:text-xs font-semibold uppercase tracking-widest">Scroll</span>
             </div>
         </div>
     </section>
@@ -512,34 +649,34 @@
 
                 <!-- Text Content -->
                 <div class="w-full lg:w-1/2 reveal">
-                    <h3 class="text-renaldo-gold font-bold uppercase tracking-widest mb-2 text-sm sm:text-base" data-i18n="bio.about">À Propos</h3>
-                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white mb-4 sm:mb-6" data-i18n="bio.title">Le Chevalier Noir</h2>
-                    <p class="text-gray-400 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base" data-i18n="bio.text1">
+                    <h3 class="text-renaldo-gold font-bold uppercase tracking-widest mb-2 text-sm sm:text-base clean-reveal" data-i18n="bio.about">À Propos</h3>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white mb-4 sm:mb-6 clean-reveal stagger-1" data-i18n="bio.title">Le Chevalier Noir</h2>
+                    <p class="text-gray-400 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base clean-reveal stagger-2" data-i18n="bio.text1">
                         DJ Renaldo est un DJ talentueux, beatmaker, et artiste musicien international qui s'est fait un nom dans l'industrie de la musique grâce à ses mix énergiques, ses compositions uniques et sa capacité à fusionner divers genres musicaux. Originaire de Kongo Central / RDC, il a débuté sa carrière en mixant dans des clubs locaux avant de se faire connaître sur la scène internationale.
                     </p>
-                    <p class="text-gray-400 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base" data-i18n="bio.text2">
+                    <p class="text-gray-400 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base clean-reveal stagger-3" data-i18n="bio.text2">
                         Depuis ses débuts en tant que DJ, où il a appris à maîtriser le pouls de la foule, DJ Renaldo a évolué vers une carrière d'artiste complet en s'impliquant dans l'écriture, la composition, la production et l'interprétation de ses morceaux.
                     </p>
-                    <p class="text-gray-400 leading-relaxed mb-6 sm:mb-8 text-sm sm:text-base" data-i18n="bio.text3">
-                        Sa passion pour la production musicale l'a amené à travailler comme beatmaker, créant des beats uniques qui combinent des éléments modernes et ancestraux. Ses compétences en production l'ont propulsé au sommet de la scène musicale, notamment dans des genres comme l'Afrobeats, la House, l'Amapiano, et bien plus encore.
+                    <p class="text-gray-400 leading-relaxed mb-6 sm:mb-8 text-sm sm:text-base clean-reveal stagger-4" data-i18n="bio.text3">
+                        Sa passion pour la production musicale l'a mené à travailler comme beatmaker, créant des beats uniques qui combinent des éléments modernes et ancestraux. Ses compétences en production l'ont propulsé au sommet de la scène musicale, notamment dans des genres comme l'Afrobeats, la House, l'Amapiano, et bien plus encore.
                     </p>
-                    <p class="text-gray-400 leading-relaxed mb-6 sm:mb-8 text-sm sm:text-base" data-i18n="bio.text4">
+                    <p class="text-gray-400 leading-relaxed mb-6 sm:mb-8 text-sm sm:text-base clean-reveal" data-i18n="bio.text4">
                         Sur scène, DJ Renaldo dégage une énergie de vibes. Son charisme naturel et son aura magnétique captivent les foules, créant une expérience inoubliable pour chaque spectateur et fan. Il est un modèle pour la nouvelle génération, les encourageant à poursuivre leurs rêves et à surmonter les obstacles. Au-delà de la musique, DJ Renaldo est un homme humble et attentionné, toujours à l'écoute de son public.
                     </p>
 
                     <!-- Stats -->
                     <div class="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 border-t border-white/10 pt-6 sm:pt-8">
                         <div>
-                            <span class="block text-2xl sm:text-3xl md:text-4xl font-display font-bold text-white">2012</span>
-                            <span class="text-xs uppercase text-gray-500 tracking-wider" data-i18n="bio.hits">Début Carrère</span>
+                            <span class="block text-2xl sm:text-3xl md:text-4xl font-display font-bold text-white clean-reveal">2012</span>
+                            <span class="text-xs uppercase text-gray-500 tracking-wider clean-reveal" data-i18n="bio.hits">Début Carrère</span>
                         </div>
                         <div>
-                            <span class="block text-2xl sm:text-3xl md:text-4xl font-display font-bold text-white">Kongo</span>
-                            <span class="text-xs uppercase text-gray-500 tracking-wider" data-i18n="bio.shows">Central</span>
+                            <span class="block text-2xl sm:text-3xl md:text-4xl font-display font-bold text-white clean-reveal">Kongo</span>
+                            <span class="text-xs uppercase text-gray-500 tracking-wider clean-reveal" data-i18n="bio.shows">Central</span>
                         </div>
                         <div>
-                            <span class="block text-2xl sm:text-3xl md:text-4xl font-display font-bold text-white">Int.</span>
-                            <span class="text-xs uppercase text-gray-500 tracking-wider" data-i18n="bio.fans">Artist</span>
+                            <span class="block text-2xl sm:text-3xl md:text-4xl font-display font-bold text-white clean-reveal">Int.</span>
+                            <span class="text-xs uppercase text-gray-500 tracking-wider clean-reveal" data-i18n="bio.fans">Artist</span>
                         </div>
                     </div>
                 </div>
@@ -560,25 +697,25 @@
 
                 <!-- Text Content -->
                 <div class="w-full lg:w-1/2 reveal">
-                    <h3 class="text-renaldo-gold font-bold uppercase tracking-widest mb-2 text-sm sm:text-base">Carrière</h3>
-                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white mb-4 sm:mb-6">Le Chevalier Noir : Beatmaker</h2>
-                    <p class="text-gray-400 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
+                    <h3 class="text-renaldo-gold font-bold uppercase tracking-widest mb-2 text-sm sm:text-base clean-reveal">Carrière</h3>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white mb-4 sm:mb-6 clean-reveal stagger-1">Le Chevalier Noir : Beatmaker</h2>
+                    <p class="text-gray-400 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base clean-reveal stagger-2">
                         En plus de sa carrière de DJ et d'artiste, DJ Renaldo est également un beatmaker accompli, créant des beats puissants et des instrumentaux uniques pour divers projets musicaux.
                     </p>
-                    <p class="text-gray-400 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
+                    <p class="text-gray-400 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base clean-reveal stagger-3">
                         Son approche créative combine des éléments de musique électronique moderne avec des sons traditionnels et des influences diverses, offrant ainsi une production originale et éclectique.
                     </p>
-                    <p class="text-gray-400 leading-relaxed mb-6 sm:mb-8 text-sm sm:text-base">
+                    <p class="text-gray-400 leading-relaxed mb-6 sm:mb-8 text-sm sm:text-base clean-reveal stagger-4">
                         Ses productions ont séduit de nombreux artistes, qu'il s'agisse de collaborations sur des morceaux ou de beats dédiés à des projets spécifiques. Le travail de production de DJ Renaldo est reconnu pour son originalité, sa qualité sonore et sa capacité à créer des atmosphères uniques dans chaque morceau.
                     </p>
 
                     <!-- Genres -->
                     <div class="flex flex-wrap gap-2 sm:gap-3">
-                        <span class="px-3 sm:px-4 py-2 bg-renaldo-purple/20 text-renaldo-purple rounded-full text-xs sm:text-sm font-semibold">Afrobeats</span>
-                        <span class="px-3 sm:px-4 py-2 bg-renaldo-purple/20 text-renaldo-purple rounded-full text-xs sm:text-sm font-semibold">House</span>
-                        <span class="px-3 sm:px-4 py-2 bg-renaldo-purple/20 text-renaldo-purple rounded-full text-xs sm:text-sm font-semibold">Amapiano</span>
-                        <span class="px-3 sm:px-4 py-2 bg-renaldo-purple/20 text-renaldo-purple rounded-full text-xs sm:text-sm font-semibold">Électronique</span>
-                        <span class="px-3 sm:px-4 py-2 bg-renaldo-purple/20 text-renaldo-purple rounded-full text-xs sm:text-sm font-semibold">Traditionnel</span>
+                        <span class="px-3 sm:px-4 py-2 bg-renaldo-purple/20 text-renaldo-purple rounded-full text-xs sm:text-sm font-semibold clean-reveal">Afrobeats</span>
+                        <span class="px-3 sm:px-4 py-2 bg-renaldo-purple/20 text-renaldo-purple rounded-full text-xs sm:text-sm font-semibold clean-reveal">House</span>
+                        <span class="px-3 sm:px-4 py-2 bg-renaldo-purple/20 text-renaldo-purple rounded-full text-xs sm:text-sm font-semibold clean-reveal">Amapiano</span>
+                        <span class="px-3 sm:px-4 py-2 bg-renaldo-purple/20 text-renaldo-purple rounded-full text-xs sm:text-sm font-semibold clean-reveal">Électronique</span>
+                        <span class="px-3 sm:px-4 py-2 bg-renaldo-purple/20 text-renaldo-purple rounded-full text-xs sm:text-sm font-semibold clean-reveal">Traditionnel</span>
                     </div>
                 </div>
             </div>
@@ -598,39 +735,39 @@
 
                 <!-- Text Content -->
                 <div class="w-full lg:w-1/2 reveal">
-                    <h3 class="text-renaldo-gold font-bold uppercase tracking-widest mb-2 text-sm sm:text-base">Carrière</h3>
-                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white mb-4 sm:mb-6">Artiste Musicien</h2>
-                    <p class="text-gray-400 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
+                    <h3 class="text-renaldo-gold font-bold uppercase tracking-widest mb-2 text-sm sm:text-base clean-reveal">Carrière</h3>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white mb-4 sm:mb-6 clean-reveal stagger-1">Artiste Musicien</h2>
+                    <p class="text-gray-400 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base clean-reveal stagger-2">
                         Depuis ses débuts dans la musique en 2012, DJ Renaldo développe une identité artistique influencée par l'Afro House, l'Amapiano et les sonorités électroniques.
                     </p>
-                    <p class="text-gray-400 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
+                    <p class="text-gray-400 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base clean-reveal stagger-3">
                         En 2019, il affirme davantage son univers à travers ses productions et collaborations, notamment avec Modjadeep.SA sur le titre Lubumbashi.
                     </p>
-                    <p class="text-gray-400 leading-relaxed mb-6 sm:mb-8 text-sm sm:text-base">
+                    <p class="text-gray-400 leading-relaxed mb-6 sm:mb-8 text-sm sm:text-base clean-reveal stagger-4">
                         Il poursuit son évolution avec la sortie de l'album Umoja en 2021. Aujourd'hui, DJ Renaldo continue de développer son identité musicale à travers ses productions, collaborations et nouveaux projets artistiques, mêlant avec brio musique électronique, chant et rythmes modernes dans des morceaux captivants qui touchent ses fans.
                     </p>
 
                     <!-- Timeline -->
                     <div class="space-y-4 sm:space-y-6">
                         <div class="flex items-start gap-4">
-                            <div class="w-16 sm:w-20 text-renaldo-gold font-display font-bold text-lg sm:text-xl">2012</div>
+                            <div class="w-16 sm:w-20 text-renaldo-gold font-display font-bold text-lg sm:text-xl clean-reveal">2012</div>
                             <div class="flex-1 pt-1">
-                                <p class="text-white font-semibold text-sm sm:text-base">Début dans la musique</p>
-                                <p class="text-gray-400 text-xs sm:text-sm">Influences Afro House, Amapiano, Électronique</p>
+                                <p class="text-white font-semibold text-sm sm:text-base clean-reveal">Début dans la musique</p>
+                                <p class="text-gray-400 text-xs sm:text-sm clean-reveal">Influences Afro House, Amapiano, Électronique</p>
                             </div>
                         </div>
                         <div class="flex items-start gap-4">
-                            <div class="w-16 sm:w-20 text-renaldo-gold font-display font-bold text-lg sm:text-xl">2019</div>
+                            <div class="w-16 sm:w-20 text-renaldo-gold font-display font-bold text-lg sm:text-xl clean-reveal">2019</div>
                             <div class="flex-1 pt-1">
-                                <p class="text-white font-semibold text-sm sm:text-base">Collaboration Modjadeep.SA</p>
-                                <p class="text-gray-400 text-xs sm:text-sm">Titre "Lubumbashi"</p>
+                                <p class="text-white font-semibold text-sm sm:text-base clean-reveal">Collaboration Modjadeep.SA</p>
+                                <p class="text-gray-400 text-xs sm:text-sm clean-reveal">Titre "Lubumbashi"</p>
                             </div>
                         </div>
                         <div class="flex items-start gap-4">
-                            <div class="w-16 sm:w-20 text-renaldo-gold font-display font-bold text-lg sm:text-xl">2021</div>
+                            <div class="w-16 sm:w-20 text-renaldo-gold font-display font-bold text-lg sm:text-xl clean-reveal">2021</div>
                             <div class="flex-1 pt-1">
-                                <p class="text-white font-semibold text-sm sm:text-base">Album Umoja</p>
-                                <p class="text-gray-400 text-xs sm:text-sm">Sortie majeure et affirmation artistique</p>
+                                <p class="text-white font-semibold text-sm sm:text-base clean-reveal">Album Umoja</p>
+                                <p class="text-gray-400 text-xs sm:text-sm clean-reveal">Sortie majeure et affirmation artistique</p>
                             </div>
                         </div>
                     </div>
@@ -643,8 +780,8 @@
     <section id="music" class="py-16 sm:py-20 md:py-24 bg-[#050505] overflow-hidden">
         <div class="container mx-auto px-4 sm:px-6">
             <div class="text-center mb-12 sm:mb-16 reveal">
-                <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-4">Discographie <span class="text-renaldo-gold">.</span></h2>
-                <p class="text-gray-400 max-w-xl mx-auto text-sm sm:text-base">Les sons qui font vibrer l'Afrique. Écoutez les dernières productions exclusives.</p>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-4 clean-reveal">Discographie <span class="text-renaldo-gold">.</span></h2>
+                <p class="text-gray-400 max-w-xl mx-auto text-sm sm:text-base clean-reveal stagger-1">Les sons qui font vibrer l'Afrique. Écoutez les dernières productions exclusives.</p>
             </div>
 
             <div class="flex flex-col lg:flex-row gap-8 sm:gap-12 items-center justify-center">
@@ -669,7 +806,7 @@
                 <!-- Tracklist & Audio Player -->
                 <div class="w-full lg:w-6/12 reveal">
                     <div class="bg-white/5 border border-white/10 rounded-2xl p-4 sm:p-6 backdrop-blur-sm">
-                        <h3 class="text-lg sm:text-xl font-bold text-white mb-4 sm:mb-6 flex items-center gap-2">
+                        <h3 class="text-lg sm:text-xl font-bold text-white mb-4 sm:mb-6 flex items-center gap-2 clean-reveal">
                             <i data-lucide="music" class="text-renaldo-gold"></i> Dernières Sorties
                         </h3>
 
@@ -758,7 +895,7 @@
     <!-- Services Section -->
     <section id="services" class="py-16 sm:py-20 md:py-24 bg-renaldo-dark relative">
         <div class="container mx-auto px-4 sm:px-6">
-            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-8 sm:mb-12 text-center reveal">Services<span class="text-renaldo-purple">.</span></h2>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-8 sm:mb-12 text-center reveal clean-reveal">Services<span class="text-renaldo-purple">.</span></h2>
 
             <div class="max-w-6xl mx-auto space-y-6 sm:space-y-8">
                 <!-- Service 1: Studio Recording - Image Left, Text Right -->
@@ -771,17 +908,17 @@
                             <div class="w-12 h-12 sm:w-16 sm:h-16 bg-renaldo-gold rounded-full flex items-center justify-center">
                                 <i data-lucide="mic" class="w-6 h-6 sm:w-8 sm:h-8 text-black"></i>
                             </div>
-                            <h3 class="text-xl sm:text-2xl md:text-3xl font-bold text-white group-hover:text-renaldo-gold transition-colors">Studio d'Enregistrement Professionnel</h3>
+                            <h3 class="text-xl sm:text-2xl md:text-3xl font-bold text-white group-hover:text-renaldo-gold transition-colors clean-reveal">Studio d'Enregistrement Professionnel</h3>
                         </div>
-                        <p class="text-gray-400 leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">
+                        <p class="text-gray-400 leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base clean-reveal stagger-1">
                             Équipé des dernières technologies, notre studio offre un environnement acoustique parfait pour capturer votre voix et vos instruments avec une qualité exceptionnelle. De la pré-production à la finalisation, nous transformons vos idées en chefs-d'œuvre sonores.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4 sm:mb-6">
-                            <span class="px-2 sm:px-3 py-1 bg-renaldo-purple/20 text-renaldo-purple rounded-full text-xs sm:text-sm">Équipement Haut de Gamme</span>
-                            <span class="px-2 sm:px-3 py-1 bg-renaldo-purple/20 text-renaldo-purple rounded-full text-xs sm:text-sm">Ingénierie Audio</span>
-                            <span class="px-2 sm:px-3 py-1 bg-renaldo-purple/20 text-renaldo-purple rounded-full text-xs sm:text-sm">Mixage Professionnel</span>
+                            <span class="px-2 sm:px-3 py-1 bg-renaldo-purple/20 text-renaldo-purple rounded-full text-xs sm:text-sm clean-reveal stagger-2">Équipement Haut de Gamme</span>
+                            <span class="px-2 sm:px-3 py-1 bg-renaldo-purple/20 text-renaldo-purple rounded-full text-xs sm:text-sm clean-reveal stagger-3">Ingénierie Audio</span>
+                            <span class="px-2 sm:px-3 py-1 bg-renaldo-purple/20 text-renaldo-purple rounded-full text-xs sm:text-sm clean-reveal stagger-4">Mixage Professionnel</span>
                         </div>
-                        <button class="px-6 sm:px-8 py-2 sm:py-3 bg-transparent border border-white/30 text-white font-bold uppercase hover:bg-renaldo-gold hover:text-black hover:border-renaldo-gold transition-all duration-300 w-full lg:w-auto text-sm sm:text-base">
+                        <button class="px-6 sm:px-8 py-2 sm:py-3 bg-transparent border border-white/30 text-white font-bold uppercase hover:bg-renaldo-gold hover:text-black hover:border-renaldo-gold transition-all duration-300 w-full lg:w-auto text-sm sm:text-base clean-reveal">
                             Réserver
                         </button>
                     </div>
@@ -797,17 +934,17 @@
                             <div class="w-12 h-12 sm:w-16 sm:h-16 bg-renaldo-purple rounded-full flex items-center justify-center">
                                 <i data-lucide="music" class="w-6 h-6 sm:w-8 sm:h-8 text-white"></i>
                             </div>
-                            <h3 class="text-xl sm:text-2xl md:text-3xl font-bold text-white group-hover:text-renaldo-gold transition-colors">Beatmaking & Production Musicale</h3>
+                            <h3 class="text-xl sm:text-2xl md:text-3xl font-bold text-white group-hover:text-renaldo-gold transition-colors clean-reveal">Beatmaking & Production Musicale</h3>
                         </div>
-                        <p class="text-gray-400 leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">
+                        <p class="text-gray-400 leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base clean-reveal stagger-1">
                             Créateur de beats innovants fusionnant rythmes africains traditionnels et sonorités modernes. De l'instrumental pur au beat complet, nous composons des productions uniques qui définissent les tendances musicales actuelles.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4 sm:mb-6">
-                            <span class="px-2 sm:px-3 py-1 bg-renaldo-purple/20 text-renaldo-purple rounded-full text-xs sm:text-sm">Beats Originaux</span>
-                            <span class="px-2 sm:px-3 py-1 bg-renaldo-purple/20 text-renaldo-purple rounded-full text-xs sm:text-sm">Production Complète</span>
-                            <span class="px-2 sm:px-3 py-1 bg-renaldo-purple/20 text-renaldo-purple rounded-full text-xs sm:text-sm">Arrangement Musical</span>
+                            <span class="px-2 sm:px-3 py-1 bg-renaldo-purple/20 text-renaldo-purple rounded-full text-xs sm:text-sm clean-reveal stagger-2">Beats Originaux</span>
+                            <span class="px-2 sm:px-3 py-1 bg-renaldo-purple/20 text-renaldo-purple rounded-full text-xs sm:text-sm clean-reveal stagger-3">Production Complète</span>
+                            <span class="px-2 sm:px-3 py-1 bg-renaldo-purple/20 text-renaldo-purple rounded-full text-xs sm:text-sm clean-reveal stagger-4">Arrangement Musical</span>
                         </div>
-                        <button class="px-6 sm:px-8 py-2 sm:py-3 bg-transparent border border-white/30 text-white font-bold uppercase hover:bg-renaldo-gold hover:text-black hover:border-renaldo-gold transition-all duration-300 w-full lg:w-auto text-sm sm:text-base">
+                        <button class="px-6 sm:px-8 py-2 sm:py-3 bg-transparent border border-white/30 text-white font-bold uppercase hover:bg-renaldo-gold hover:text-black hover:border-renaldo-gold transition-all duration-300 w-full lg:w-auto text-sm sm:text-base clean-reveal">
                             Commander
                         </button>
                     </div>
@@ -823,17 +960,17 @@
                             <div class="w-12 h-12 sm:w-16 sm:h-16 bg-red-500 rounded-full flex items-center justify-center">
                                 <i data-lucide="users" class="w-6 h-6 sm:w-8 sm:h-8 text-white"></i>
                             </div>
-                            <h3 class="text-xl sm:text-2xl md:text-3xl font-bold text-white group-hover:text-renaldo-gold transition-colors">Concerts Publics & Festivals</h3>
+                            <h3 class="text-xl sm:text-2xl md:text-3xl font-bold text-white group-hover:text-renaldo-gold transition-colors clean-reveal">Concerts Publics & Festivals</h3>
                         </div>
-                        <p class="text-gray-400 leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">
+                        <p class="text-gray-400 leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base clean-reveal stagger-1">
                             Spectacles live d'exception pour festivals, salles de concert et événements publics. Notre set DJ transforme chaque moment en expérience mémorable, avec une énergie contagieuse qui captive des milliers de spectateurs.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4 sm:mb-6">
-                            <span class="px-2 sm:px-3 py-1 bg-renaldo-purple/20 text-renaldo-purple rounded-full text-xs sm:text-sm">Sets DJ Énergiques</span>
-                            <span class="px-2 sm:px-3 py-1 bg-renaldo-purple/20 text-renaldo-purple rounded-full text-xs sm:text-sm">Animation de Foule</span>
-                            <span class="px-2 sm:px-3 py-1 bg-renaldo-purple/20 text-renaldo-purple rounded-full text-xs sm:text-sm">Production Visuelle</span>
+                            <span class="px-2 sm:px-3 py-1 bg-renaldo-purple/20 text-renaldo-purple rounded-full text-xs sm:text-sm clean-reveal stagger-2">Sets DJ Énergiques</span>
+                            <span class="px-2 sm:px-3 py-1 bg-renaldo-purple/20 text-renaldo-purple rounded-full text-xs sm:text-sm clean-reveal stagger-3">Animation de Foule</span>
+                            <span class="px-2 sm:px-3 py-1 bg-renaldo-purple/20 text-renaldo-purple rounded-full text-xs sm:text-sm clean-reveal stagger-4">Production Visuelle</span>
                         </div>
-                        <button class="px-6 sm:px-8 py-2 sm:py-3 bg-transparent border border-white/30 text-white font-bold uppercase hover:bg-renaldo-gold hover:text-black hover:border-renaldo-gold transition-all duration-300 w-full lg:w-auto text-sm sm:text-base">
+                        <button class="px-6 sm:px-8 py-2 sm:py-3 bg-transparent border border-white/30 text-white font-bold uppercase hover:bg-renaldo-gold hover:text-black hover:border-renaldo-gold transition-all duration-300 w-full lg:w-auto text-sm sm:text-base clean-reveal">
                             Booking
                         </button>
                     </div>
@@ -849,17 +986,17 @@
                             <div class="w-12 h-12 sm:w-16 sm:h-16 bg-blue-500 rounded-full flex items-center justify-center">
                                 <i data-lucide="home" class="w-6 h-6 sm:w-8 sm:h-8 text-white"></i>
                             </div>
-                            <h3 class="text-xl sm:text-2xl md:text-3xl font-bold text-white group-hover:text-renaldo-gold transition-colors">Concerts Privés & Événements VIP</h3>
+                            <h3 class="text-xl sm:text-2xl md:text-3xl font-bold text-white group-hover:text-renaldo-gold transition-colors clean-reveal">Concerts Privés & Événements VIP</h3>
                         </div>
-                        <p class="text-gray-400 leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">
+                        <p class="text-gray-400 leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base clean-reveal stagger-1">
                             Pour vos soirées privées, mariages, anniversaires ou événements corporate. Un set personnalisé adapté à votre ambiance, créant une atmosphère unique et sophistiquée pour vos invités privilégiés.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4 sm:mb-6">
-                            <span class="px-2 sm:px-3 py-1 bg-renaldo-purple/20 text-renaldo-purple rounded-full text-xs sm:text-sm">Sets Personnalisés</span>
-                            <span class="px-2 sm:px-3 py-1 bg-renaldo-purple/20 text-renaldo-purple rounded-full text-xs sm:text-sm">Ambiance Sur Mesure</span>
-                            <span class="px-2 sm:px-3 py-1 bg-renaldo-purple/20 text-renaldo-purple rounded-full text-xs sm:text-sm">Service VIP</span>
+                            <span class="px-2 sm:px-3 py-1 bg-renaldo-purple/20 text-renaldo-purple rounded-full text-xs sm:text-sm clean-reveal stagger-2">Sets Personnalisés</span>
+                            <span class="px-2 sm:px-3 py-1 bg-renaldo-purple/20 text-renaldo-purple rounded-full text-xs sm:text-sm clean-reveal stagger-3">Ambiance Sur Mesure</span>
+                            <span class="px-2 sm:px-3 py-1 bg-renaldo-purple/20 text-renaldo-purple rounded-full text-xs sm:text-sm clean-reveal stagger-4">Service VIP</span>
                         </div>
-                        <button class="px-6 sm:px-8 py-2 sm:py-3 bg-transparent border border-white/30 text-white font-bold uppercase hover:bg-renaldo-gold hover:text-black hover:border-renaldo-gold transition-all duration-300 w-full lg:w-auto text-sm sm:text-base">
+                        <button class="px-6 sm:px-8 py-2 sm:py-3 bg-transparent border border-white/30 text-white font-bold uppercase hover:bg-renaldo-gold hover:text-black hover:border-renaldo-gold transition-all duration-300 w-full lg:w-auto text-sm sm:text-base clean-reveal">
                             Contacter
                         </button>
                     </div>
@@ -875,17 +1012,17 @@
                             <div class="w-12 h-12 sm:w-16 sm:h-16 bg-green-500 rounded-full flex items-center justify-center">
                                 <i data-lucide="settings" class="w-6 h-6 sm:w-8 sm:h-8 text-white"></i>
                             </div>
-                            <h3 class="text-xl sm:text-2xl md:text-3xl font-bold text-white group-hover:text-renaldo-gold transition-colors">Mastering & Post-Production</h3>
+                            <h3 class="text-xl sm:text-2xl md:text-3xl font-bold text-white group-hover:text-renaldo-gold transition-colors clean-reveal">Mastering & Post-Production</h3>
                         </div>
-                        <p class="text-gray-400 leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">
+                        <p class="text-gray-400 leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base clean-reveal stagger-1">
                             Finalisation professionnelle de vos projets musicaux. Notre expertise en mastering garantit une qualité audio optimale pour tous supports : streaming, radio, vinyl, CD. Chaque détail est peaufiné pour un rendu parfait.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4 sm:mb-6">
-                            <span class="px-2 sm:px-3 py-1 bg-renaldo-purple/20 text-renaldo-purple rounded-full text-xs sm:text-sm">Mastering Haute Définition</span>
-                            <span class="px-2 sm:px-3 py-1 bg-renaldo-purple/20 text-renaldo-purple rounded-full text-xs sm:text-sm">Optimisation Streaming</span>
-                            <span class="px-2 sm:px-3 py-1 bg-renaldo-purple/20 text-renaldo-purple rounded-full text-xs sm:text-sm">Préparation Distribution</span>
+                            <span class="px-2 sm:px-3 py-1 bg-renaldo-purple/20 text-renaldo-purple rounded-full text-xs sm:text-sm clean-reveal stagger-2">Mastering Haute Définition</span>
+                            <span class="px-2 sm:px-3 py-1 bg-renaldo-purple/20 text-renaldo-purple rounded-full text-xs sm:text-sm clean-reveal stagger-3">Optimisation Streaming</span>
+                            <span class="px-2 sm:px-3 py-1 bg-renaldo-purple/20 text-renaldo-purple rounded-full text-xs sm:text-sm clean-reveal stagger-4">Préparation Distribution</span>
                         </div>
-                        <button class="px-6 sm:px-8 py-2 sm:py-3 bg-transparent border border-white/30 text-white font-bold uppercase hover:bg-renaldo-gold hover:text-black hover:border-renaldo-gold transition-all duration-300 w-full lg:w-auto text-sm sm:text-base">
+                        <button class="px-6 sm:px-8 py-2 sm:py-3 bg-transparent border border-white/30 text-white font-bold uppercase hover:bg-renaldo-gold hover:text-black hover:border-renaldo-gold transition-all duration-300 w-full lg:w-auto text-sm sm:text-base clean-reveal">
                             Demander
                         </button>
                     </div>
@@ -944,8 +1081,8 @@
 
         <div class="container mx-auto px-4 sm:px-6 relative z-10">
             <div class="text-center mb-12 sm:mb-16 reveal">
-                <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-4">DJ Renaldo <span class="text-renaldo-gold">Online Presence</span></h2>
-                <p class="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base" data-i18n="online.subtitle">Découvrez le contenu multimédia de DJ Renaldo : photos, vidéos et stories qui capturent son parcours musical et ses performances exceptionnelles.</p>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-4 clean-reveal">DJ Renaldo <span class="text-renaldo-gold">Online Presence</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base clean-reveal stagger-1" data-i18n="online.subtitle">Découvrez le contenu multimédia de DJ Renaldo : photos, vidéos et stories qui capturent son parcours musical et ses performances exceptionnelles.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
@@ -1041,8 +1178,8 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
                 
                 <div class="reveal">
-                    <h2 class="text-5xl font-display font-bold text-white mb-6">Collaborez avec <br><span class="text-renaldo-gold">Le Chevalier Noir.</span></h2>
-                    <p class="text-gray-400 mb-8 text-lg" data-i18n="contact.subtitle">
+                    <h2 class="text-5xl font-display font-bold text-white mb-6 clean-reveal">Collaborez avec <br><span class="text-renaldo-gold">Le Chevalier Noir.</span></h2>
+                    <p class="text-gray-400 mb-8 text-lg clean-reveal stagger-1" data-i18n="contact.subtitle">
                         Pour les bookings, collaborations musicales, interviews ou événements privés. L'équipe de management répond sous 24h.
                     </p>
 
@@ -1052,8 +1189,8 @@
                                 <i data-lucide="mail"></i>
                             </div>
                             <div>
-                                <h4 class="text-white font-bold" data-i18n="contact.email">Email Booking</h4>
-                                <p class="text-gray-400">djrenaldobooking@gmail.com</p>
+                                <h4 class="text-white font-bold clean-reveal" data-i18n="contact.email">Email Booking</h4>
+                                <p class="text-gray-400 clean-reveal">djrenaldobooking@gmail.com</p>
                             </div>
                         </div>
                         <div class="flex items-center gap-4">
@@ -1061,8 +1198,8 @@
                                 <i data-lucide="phone"></i>
                             </div>
                             <div>
-                                <h4 class="text-white font-bold" data-i18n="contact.phone">Téléphone / WhatsApp</h4>
-                                <p class="text-gray-400">+243 995 597 388</p>
+                                <h4 class="text-white font-bold clean-reveal" data-i18n="contact.phone">Téléphone / WhatsApp</h4>
+                                <p class="text-gray-400 clean-reveal">+243 995 597 388</p>
                             </div>
                         </div>
                         <div class="flex items-center gap-4">
@@ -1070,8 +1207,8 @@
                                 <i data-lucide="user"></i>
                             </div>
                             <div>
-                                <h4 class="text-white font-bold" data-i18n="contact.agent">Agent / Manager</h4>
-                                <p class="text-gray-400">Peters Ngoy</p>
+                                <h4 class="text-white font-bold clean-reveal" data-i18n="contact.agent">Agent / Manager</h4>
+                                <p class="text-gray-400 clean-reveal">Peters Ngoy</p>
                             </div>
                         </div>
                         <div class="flex items-center gap-4">
@@ -1079,8 +1216,8 @@
                                 <i data-lucide="globe"></i>
                             </div>
                             <div>
-                                <h4 class="text-white font-bold" data-i18n="contact.wikipedia">Wikipedia</h4>
-                                <a href="https://fr.wikipedia.org/wiki/DJ_Renaldo_(beatmaker)" target="_blank" class="text-gray-400 hover:text-renaldo-gold transition-colors">Voir le profil / View Profile</a>
+                                <h4 class="text-white font-bold clean-reveal" data-i18n="contact.wikipedia">Wikipedia</h4>
+                                <a href="https://fr.wikipedia.org/wiki/DJ_Renaldo_(beatmaker)" target="_blank" class="text-gray-400 hover:text-renaldo-gold transition-colors clean-reveal">Voir le profil / View Profile</a>
                             </div>
                         </div>
                     </div>
@@ -1372,6 +1509,7 @@
 
         // Enhanced Reveal Animations
         const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .text-reveal');
+        const cleanRevealElements = document.querySelectorAll('.clean-reveal');
         
         const revealOnScroll = () => {
             const windowHeight = window.innerHeight;
@@ -1383,10 +1521,99 @@
                     reveal.classList.add('active');
                 }
             });
+
+            // Clean reveal animation on scroll
+            cleanRevealElements.forEach((element) => {
+                const elementTop = element.getBoundingClientRect().top;
+                if (elementTop < windowHeight - elementVisible && !element.classList.contains('active')) {
+                    element.classList.add('active');
+                }
+            });
         };
 
         window.addEventListener('scroll', revealOnScroll);
         revealOnScroll();
+
+        // Smooth scroll for scroll indicator
+        const scrollIndicator = document.querySelector('[data-scroll="true"]');
+        if (scrollIndicator) {
+            scrollIndicator.addEventListener('click', () => {
+                window.scrollTo({
+                    top: window.innerHeight,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+
+
+        // Hero Entry Animations
+        window.addEventListener('load', () => {
+            // Video fade in
+            const heroVideo = document.getElementById('hero-video');
+            if (heroVideo) {
+                heroVideo.style.opacity = '0';
+                heroVideo.style.transition = 'opacity 1.5s ease-out';
+                setTimeout(() => {
+                    heroVideo.style.opacity = '1';
+                }, 100);
+            }
+
+            // Hero content animations
+            setTimeout(() => {
+                const heroName = document.querySelector('.hero-name');
+                if (heroName) {
+                    heroName.classList.add('active');
+                }
+            }, 800);
+
+            setTimeout(() => {
+                const heroKnight = document.querySelector('.hero-knight');
+                if (heroKnight) {
+                    heroKnight.classList.add('active');
+                    // Start letter animation
+                    animateLetters();
+                }
+            }, 1200);
+
+            setTimeout(() => {
+                const heroLabel = document.querySelector('.hero-label');
+                if (heroLabel) {
+                    heroLabel.classList.add('active');
+                }
+            }, 1600);
+
+            setTimeout(() => {
+                const heroScroll = document.querySelector('.hero-scroll');
+                if (heroScroll) {
+                    heroScroll.classList.add('active');
+                }
+            }, 2000);
+        });
+
+        // Letter by Letter Animation Function (for Hero only)
+        function animateLetters() {
+            const knightText = document.getElementById('knight-text');
+            if (!knightText) return;
+
+            const text = knightText.textContent;
+            knightText.innerHTML = '';
+            
+            // Split text into letters (including spaces)
+            const letters = text.split('');
+            
+            letters.forEach((letter, index) => {
+                const span = document.createElement('span');
+                span.textContent = letter;
+                span.className = 'letter-animation';
+                knightText.appendChild(span);
+                
+                // Animate each letter with delay
+                setTimeout(() => {
+                    span.classList.add('active');
+                }, index * 80); // 80ms delay between each letter
+            });
+        }
 
     </script>
 
@@ -1620,14 +1847,53 @@
         const closeBtn = document.getElementById('close-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const mobileLinks = document.querySelectorAll('.mobile-link');
+        const hamburgerIcon = document.getElementById('hamburger-icon');
 
         function toggleMenu() {
-            mobileMenu.classList.toggle('translate-x-full');
+            const isClosed = mobileMenu.classList.contains('translate-x-full');
+            if (isClosed) {
+                mobileMenu.classList.remove('translate-x-full');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                
+                // Animate hamburger to X
+                if (hamburgerIcon) {
+                    const spans = hamburgerIcon.querySelectorAll('span');
+                    spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                    spans[1].style.opacity = '0';
+                    spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+                }
+            } else {
+                mobileMenu.classList.add('translate-x-full');
+                document.body.style.overflow = ''; // Restore scrolling
+                
+                // Animate X back to hamburger
+                if (hamburgerIcon) {
+                    const spans = hamburgerIcon.querySelectorAll('span');
+                    spans[0].style.transform = 'rotate(0) translate(0, 0)';
+                    spans[1].style.opacity = '1';
+                    spans[2].style.transform = 'rotate(0) translate(0, 0)';
+                }
+            }
         }
 
-        mobileBtn.addEventListener('click', toggleMenu);
-        closeBtn.addEventListener('click', toggleMenu);
-        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+        if (mobileBtn) {
+            mobileBtn.addEventListener('click', toggleMenu);
+        }
+        
+        if (closeBtn) {
+            closeBtn.addEventListener('click', toggleMenu);
+        }
+        
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !mobileBtn.contains(e.target) && !mobileMenu.classList.contains('translate-x-full')) {
+                toggleMenu();
+            }
+        });
 
         // Cookie Consent
         const cookieBanner = document.getElementById('cookie-banner');
